@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Http\JsonResponse;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Http;
@@ -10,12 +11,14 @@ use Illuminate\Validation\Rule;
 
 class BrochureLeadController extends Controller
 {
-    public function store(Request $request): RedirectResponse
+    public function store(Request $request): JsonResponse|RedirectResponse
     {
         $allowedKeys = array_keys(config('brochures.pdfs', []));
         if ($allowedKeys === []) {
             abort(404);
         }
+
+        $wantsJson = $request->ajax() || $request->wantsJson();
 
         $cities = config('brochures.cities', []);
 
@@ -50,6 +53,13 @@ class BrochureLeadController extends Controller
             ]);
 
             if (! ($verify->json('success') ?? false)) {
+                if ($wantsJson) {
+                    return response()->json([
+                        'message' => 'reCAPTCHA verification failed. Please try again.',
+                        'errors' => ['g-recaptcha-response' => ['reCAPTCHA verification failed. Please try again.']],
+                    ], 422);
+                }
+
                 return back()
                     ->withErrors(['g-recaptcha-response' => 'reCAPTCHA verification failed. Please try again.'])
                     ->withInput();
@@ -59,6 +69,13 @@ class BrochureLeadController extends Controller
         $pdfRelative = config('brochures.pdfs.'.$validated['brochure_key']);
         $fullPath = public_path($pdfRelative);
         if (! is_file($fullPath)) {
+            if ($wantsJson) {
+                return response()->json([
+                    'message' => 'This brochure file is not available yet.',
+                    'errors' => ['brochure' => ['This brochure file is not available yet. Please try again later or contact us.']],
+                ], 422);
+            }
+
             return back()
                 ->withErrors(['brochure' => 'This brochure file is not available yet. Please try again later or contact us.'])
                 ->withInput();
@@ -89,6 +106,12 @@ class BrochureLeadController extends Controller
             // Still allow PDF download if mail is misconfigured locally
         }
 
-        return redirect()->to(asset($pdfRelative));
+        $pdfUrl = asset($pdfRelative);
+
+        if ($request->ajax() || $request->wantsJson()) {
+            return response()->json(['pdf_url' => $pdfUrl]);
+        }
+
+        return redirect()->to($pdfUrl);
     }
 }

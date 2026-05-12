@@ -4,6 +4,47 @@
     @if (config('services.recaptcha.site_key'))
         <script src="https://www.google.com/recaptcha/api.js" async defer></script>
     @endif
+    <style>
+        .laravel-hajj-bank-partner--align-left {
+            text-align: left;
+        }
+        .laravel-hajj-bank-partner--align-left .laravel-hajj-bank-partner__logo {
+            display: inline-block;
+            margin-left: 0;
+            margin-right: auto;
+        }
+        .laravel-hajj-bank-partner--align-left .laravel-hajj-bank-partner__logo img {
+            display: block;
+        }
+
+        .laravel-umrah-savings-page .post_content.entry-content {
+            text-align: left;
+            font-family: 'Raleway', sans-serif;
+            font-weight: 400;
+            font-style: normal;
+        }
+
+        .laravel-umrah-savings-page .laravel-hajj-section-title {
+            font-weight: 700 !important;
+            font-family: 'Raleway', sans-serif;
+            font-size: 38px !important;
+        }
+
+        .laravel-umrah-savings-page .post_content.entry-content p,
+        .laravel-umrah-savings-page .post_content.entry-content .laravel-hajj-lead,
+        .laravel-umrah-savings-page .laravel-product-feature-list,
+        .laravel-umrah-savings-page .laravel-product-feature-list li {
+            font-size: 1.125rem;
+            line-height: 1.65;
+            color: #000000;
+        }
+
+        .laravel-umrah-savings-page .laravel-hajj-av__caption,
+        .laravel-umrah-savings-page .laravel-hajj-av__caption a {
+            font-size: 1.05rem;
+            color: #000000;
+        }
+    </style>
 @endpush
 
 @section('structured_meta_title', 'Umrah Savings Plan - 5th Pillar Family Takaful')
@@ -13,21 +54,11 @@
 
 @section('structured_primary')
     @php
-        $partnerLogo = static function (string $stem, string $fallbackSvg): string {
-            $png = public_path('uploads/partners/'.$stem.'-logo.png');
-            if (file_exists($png)) {
-                return asset('uploads/partners/'.$stem.'-logo.png');
-            }
-            $svg = public_path('uploads/partners/'.$stem.'-logo.svg');
-            if (file_exists($svg)) {
-                return asset('uploads/partners/'.$stem.'-logo.svg');
-            }
-
-            return asset('uploads/partners/'.$fallbackSvg);
-        };
-        $bankAlfalahUrl = $partnerLogo('bank-alfalah', 'bank-alfalah-logo.svg');
+        $umrahLogoBankAlfalah = asset('assets/images/BAFL-02-03-300x239.png');
+        $umrahLogoBankIslami = asset('assets/images/Bank-Islami-Edited.webp');
+        $umrahLogo5thPillar = asset('assets/images/5th.webp');
     @endphp
-    <article class="post_item_single type-page hentry laravel-hajj-page">
+    <article class="post_item_single type-page hentry laravel-hajj-page laravel-umrah-savings-page">
         <div class="post_content entry-content">
             <section class="laravel-hajj-hero-intro">
                 <p class="laravel-hajj-lead">
@@ -42,13 +73,16 @@
                 <p class="laravel-hajj-lead">
                     Embark on your Umrah pilgrimage worry-free with the 5th Pillar Family Takaful Umrah Savings Plan. Experience peace, tranquility, and focus on your spiritual journey, secure in the knowledge that your earthly needs are handled.
                 </p>
-                <div class="laravel-hajj-actions">
-                    <button type="button" class="laravel-hajj-btn laravel-brochure-trigger" data-brochure-key="umrah-intro">Download Brochure</button>
-                </div>
-                <div class="laravel-hajj-bank-partner laravel-hajj-bank-partner--center">
-                    <span class="laravel-hajj-bank-note__label">In partnership with</span>
+                <div class="laravel-hajj-bank-partner laravel-hajj-bank-partner--align-left">
                     <div class="laravel-hajj-bank-partner__logo">
-                        <img src="{{ $bankAlfalahUrl }}" width="240" height="48" loading="lazy" decoding="async" alt="Bank Alfalah">
+                        <img
+                            src="{{ $umrahLogoBankAlfalah }}"
+                            width="200"
+                            height="159"
+                            loading="lazy"
+                            decoding="async"
+                            alt="Bank Alfalah"
+                        >
                     </div>
                 </div>
             </section>
@@ -58,10 +92,17 @@
                 <p>
                     If you are looking to provide your family with the best lifestyle, protect them against any unforeseen events or looking for the family to fulfil their financial obligations, then 5th Pillar Family Takaful Amanat Savings Plan is the right solution for you. Our Takaful plans work in a Shariah-compliant manner and facilitate saving, investing and growing your savings while enjoying a significant level of Family Takaful coverage.
                 </p>
-                <div class="laravel-hajj-bank-partner laravel-hajj-bank-partner--center laravel-hajj-bank-partner--spaced">
-                    <span class="laravel-hajj-bank-note__label">In partnership with</span>
+                <div class="laravel-hajj-bank-partner laravel-hajj-bank-partner--align-left laravel-hajj-bank-partner--spaced">
                     <div class="laravel-hajj-bank-partner__logo">
-                        <img src="{{ $bankAlfalahUrl }}" width="240" height="48" loading="lazy" decoding="async" alt="Bank Alfalah">
+                        <img
+                            src="{{ $umrahLogoBankIslami }}"
+                            width="200"
+                            height="155"
+                            loading="lazy"
+                            decoding="async"
+                            title="Bank-Islami-Edited"
+                            alt="BankIslami"
+                        >
                     </div>
                 </div>
             </section>
@@ -71,6 +112,17 @@
                 <p>
                     With 5th Pillar Family Takaful Saadat Umrah Savings Plan, we understand how important and costly this journey can be. That&rsquo;s why we&rsquo;re dedicated to making Umrah accessible and affordable. We know that going to the holy cities of Makkah and Medina is not just a spiritual calling but also a financial commitment. To make your Umrah experience convenient and hassle-free, we&rsquo;ve created an inclusive solution with all the services you need.
                 </p>
+                <div class="laravel-hajj-bank-partner laravel-hajj-bank-partner--align-left laravel-hajj-bank-partner--spaced">
+                    <div class="laravel-hajj-bank-partner__logo laravel-hajj-bank-partner__logo--wide">
+                        <img
+                            src="{{ $umrahLogo5thPillar }}"
+                            width="200"
+                            loading="lazy"
+                            decoding="async"
+                            alt="5th Pillar Family Takaful"
+                        >
+                    </div>
+                </div>
                 <button type="button" class="laravel-hajj-btn laravel-brochure-trigger" data-brochure-key="saadat-umrah">Saadat Umrah Savings Plan Brochure</button>
             </section>
 

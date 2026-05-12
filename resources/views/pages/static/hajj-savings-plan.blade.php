@@ -4,6 +4,19 @@
     @if (config('services.recaptcha.site_key'))
         <script src="https://www.google.com/recaptcha/api.js" async defer></script>
     @endif
+    <style>
+        .laravel-hajj-bank-partner--align-left {
+            text-align: left;
+        }
+        .laravel-hajj-bank-partner--align-left .laravel-hajj-bank-partner__logo {
+            display: inline-block;
+            margin-left: 0;
+            margin-right: auto;
+        }
+        .laravel-hajj-bank-partner--align-left .laravel-hajj-bank-partner__logo img {
+            display: block;
+        }
+    </style>
 @endpush
 
 @section('structured_meta_title', 'Hajj Savings Plan - 5th Pillar Family Takaful')
@@ -13,21 +26,9 @@
 
 @section('structured_primary')
     @php
-        $hajjPartnerLogo = static function (string $stem, string $fallbackSvg): string {
-            $png = public_path('uploads/partners/'.$stem.'-logo.png');
-            if (file_exists($png)) {
-                return asset('uploads/partners/'.$stem.'-logo.png');
-            }
-            $svg = public_path('uploads/partners/'.$stem.'-logo.svg');
-            if (file_exists($svg)) {
-                return asset('uploads/partners/'.$stem.'-logo.svg');
-            }
-
-            return asset('uploads/partners/'.$fallbackSvg);
-        };
-        $bankAlfalahLogoUrl = $hajjPartnerLogo('bank-alfalah', 'bank-alfalah-logo.svg');
-        $bankIslamiLogoUrl = $hajjPartnerLogo('bankislami', 'bankislami-logo.svg');
-        $dubaiIslamicBankLogoUrl = $hajjPartnerLogo('dubai-islamic-bank', 'dubai-islamic-bank-logo.svg');
+        $hajjLogoBankAlfalah = asset('assets/images/BAFL-02-03-300x239.png');
+        $hajjLogoBankIslami = asset('assets/images/Bank-Islami-Edited.webp');
+        $hajjLogo5thPillar = asset('assets/images/5th.webp');
     @endphp
     <article class="post_item_single type-page hentry laravel-hajj-page">
         <div class="post_content entry-content">
@@ -39,13 +40,12 @@
                 <div class="laravel-hajj-actions">
                     <button type="button" class="laravel-hajj-btn laravel-brochure-trigger" data-brochure-key="haazir">Download Brochure</button>
                 </div>
-                <div class="laravel-hajj-bank-partner laravel-hajj-bank-partner--center">
-                    <span class="laravel-hajj-bank-note__label">In partnership with</span>
+                <div class="laravel-hajj-bank-partner laravel-hajj-bank-partner--align-left">
                     <div class="laravel-hajj-bank-partner__logo">
                         <img
-                            src="{{ $bankAlfalahLogoUrl }}"
-                            width="240"
-                            height="48"
+                            src="{{ $hajjLogoBankAlfalah }}"
+                            width="200"
+                            height="159"
                             loading="lazy"
                             decoding="async"
                             alt="Bank Alfalah"
@@ -71,15 +71,15 @@
                     More than a financial service, we are your all-in-one Hajj partner, linking hassle-free savings, Takaful plans, and comprehensive travel support under Shariah-compliant principles.
                 </p>
                 <button type="button" class="laravel-hajj-btn laravel-brochure-trigger" data-brochure-key="saadat">Saadat Hajj Savings Plan Brochure</button>
-                <div class="laravel-hajj-bank-partner laravel-hajj-bank-partner--center laravel-hajj-bank-partner--spaced">
-                    <span class="laravel-hajj-bank-note__label">In partnership with</span>
+                <div class="laravel-hajj-bank-partner laravel-hajj-bank-partner--align-left laravel-hajj-bank-partner--spaced">
                     <div class="laravel-hajj-bank-partner__logo">
                         <img
-                            src="{{ $bankIslamiLogoUrl }}"
-                            width="260"
-                            height="52"
+                            src="{{ $hajjLogoBankIslami }}"
+                            width="200"
+                            height="155"
                             loading="lazy"
                             decoding="async"
+                            title="Bank-Islami-Edited"
                             alt="BankIslami"
                         >
                     </div>
@@ -95,16 +95,14 @@
                     Our mission is to guide you through every phase of this life-changing experience. More than just a financial service, we offer a complete, Shariah-compliant solution that covers everything. Our End-to-End Value Chain starts from a tailored savings plan to smooth travel and accommodation arrangements in Makkah and Madinah, leaving you free to focus on your spiritual journey.
                 </p>
                 <button type="button" class="laravel-hajj-btn laravel-brochure-trigger" data-brochure-key="hajj-safar">Hajj Safar Plan Brochure</button>
-                <div class="laravel-hajj-bank-partner laravel-hajj-bank-partner--center laravel-hajj-bank-partner--spaced">
-                    <span class="laravel-hajj-bank-note__label">In partnership with</span>
+                <div class="laravel-hajj-bank-partner laravel-hajj-bank-partner--align-left laravel-hajj-bank-partner--spaced">
                     <div class="laravel-hajj-bank-partner__logo laravel-hajj-bank-partner__logo--wide">
                         <img
-                            src="{{ $dubaiIslamicBankLogoUrl }}"
-                            width="280"
-                            height="52"
+                            src="{{ $hajjLogo5thPillar }}"
+                            width="200"
                             loading="lazy"
                             decoding="async"
-                            alt="Dubai Islamic Bank"
+                            alt="5th Pillar Family Takaful"
                         >
                     </div>
                 </div>
