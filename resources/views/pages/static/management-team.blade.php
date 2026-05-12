@@ -1,70 +1,80 @@
 @extends('pages.layouts.structured-page')
 
-@section('structured_meta_title', 'Management Team - 5th Pillar Family Takaful')
-@section('structured_page_title', 'Management Team')
-
-@section('structured_hero_title', 'Management Team')
+@section('structured_meta_title', $page->trans('meta_title') ?: ($page->trans('title') . ' - 5th Pillar Family Takaful'))
+@section('structured_page_title', $page->trans('title'))
+@section('structured_hero_title', $page->trans('hero_title') ?: $page->trans('title'))
 
 @php
+    $isUrdu = app()->getLocale() === 'ur';
     $teamBase = 'uploads/2023/2023/06';
+
+    $mastheadBg = $isUrdu 
+        ? asset('assets/images/inner-banners-2-64d5da6709c98-e1691742724167.webp')
+        : asset('uploads/2017/2017/09/main-bannner-64d5d132c369d.webp');
+@endphp
+
+@section('structured_masthead_bg', "url('$mastheadBg')")
+@section('structured_body_class', 'ur-rtl ' . ($isUrdu ? 'ur-mode' : ''))
+
+@php
     $managementTeam = [
         [
             'name' => 'Nasar us Samad Qureshi',
-            'subtitle' => 'Chief Executive Officer',
+            'subtitle' => $isUrdu ? 'چیف ایگزیکٹو آفیسر' : 'Chief Executive Officer',
             'image' => $teamBase . '/nasar-us-samad-qureshi-edited-64d4b85147fc6-370x370.webp',
             'linkedin' => 'https://www.linkedin.com/in/nasar-qureshi-090a0117/',
         ],
         [
             'name' => 'Muhammad Nasir Ali Syed',
-            'subtitle' => 'Executive Director - Operations',
+            'subtitle' => $isUrdu ? 'ایگزیکٹو ڈائریکٹر - آپریشنز' : 'Executive Director - Operations',
             'image' => $teamBase . '/Nasir-Ali-Syed-updated-_2_-370x370.webp',
             'linkedin' => 'https://www.linkedin.com/in/muhammad-nasir-ali-syed-b936834/',
         ],
         [
             'name' => 'Awais Hanif',
-            'subtitle' => 'Chief Financial Officer & Company Secretary',
+            'subtitle' => $isUrdu ? 'چیف فنانشل آفیسر اور کمپنی سیکرٹری' : 'Chief Financial Officer & Company Secretary',
             'image' => $teamBase . '/awais-hanif-edited-64d4b852b7435-370x370.webp',
             'linkedin' => 'https://www.linkedin.com/in/awais-hanif-aca-91893572/',
         ],
         [
             'name' => 'Imran Irshad',
-            'subtitle' => 'Head of Group Operations',
+            'subtitle' => $isUrdu ? 'ہیڈ آف گروپ آپریشنز' : 'Head of Group Operations',
             'image' => $teamBase . '/imran-irshad-edited-flipped-64d4b8538cc37-370x370.webp',
             'linkedin' => 'https://www.linkedin.com/in/imran-irshad-acii-flmi-1989a14a/',
         ],
         [
             'name' => 'Naseer Ahmed',
-            'subtitle' => 'Head of IT',
+            'subtitle' => $isUrdu ? 'ہیڈ آف آئی ٹی' : 'Head of IT',
             'image' => $teamBase . '/naseer-ahmed-edited-1-64d4b853d570b-370x370.webp',
             'linkedin' => 'https://www.linkedin.com/in/naseer-ahmed-8596383/',
         ],
         [
             'name' => 'Raja Muhammad Adnan Ali',
-            'subtitle' => 'National Sales Head',
+            'subtitle' => $isUrdu ? 'نیشنل سیلز ہیڈ' : 'National Sales Head',
             'image' => $teamBase . '/RajaAdnan640x640-1-370x370.jpg',
             'linkedin' => 'https://www.linkedin.com/in/raja-muhammad-adnan-ali/',
         ],
         [
             'name' => 'Samrah Anis',
-            'subtitle' => 'Group Head Brand Strategy',
+            'subtitle' => $isUrdu ? 'گروپ ہیڈ برانڈ اسٹریٹیجی' : 'Group Head Brand Strategy',
             'image' => $teamBase . '/WhatsApp-Image-2026-04-07-at-3.48.44-PM-370x370.jpeg',
             'linkedin' => 'https://www.linkedin.com/in/samranez',
         ],
         [
             'name' => 'Muhammad Adnan',
-            'subtitle' => 'Manager – Actuarial Services',
+            'subtitle' => $isUrdu ? 'منیجر - ایکچوئریل سروسز' : 'Manager – Actuarial Services',
             'image' => $teamBase . '/muhammad-adnan-edited-64d4b854f0b56-370x370.webp',
             'linkedin' => 'https://www.linkedin.com/in/muhammad-adnan-31720/',
         ],
         [
             'name' => 'Kamran Ali Khan',
-            'subtitle' => 'Head of Underwriting',
+            'subtitle' => $isUrdu ? 'ہیڈ آف انڈر رائٹنگ' : 'Head of Underwriting',
             'image' => $teamBase . '/kamran-ali-khan-edited-64d4b8562d2e3-370x370.webp',
             'linkedin' => 'https://www.linkedin.com/in/kamran-khan-31b819189/',
         ],
         [
             'name' => 'Aneel Akhtar',
-            'subtitle' => 'Head of Compliance',
+            'subtitle' => $isUrdu ? 'ہیڈ آف کمپلائنس' : 'Head of Compliance',
             'image' => $teamBase . '/Aneel-Akhtar-370x370.webp',
             'linkedin' => 'https://www.linkedin.com/in/aneel-akhtar-47467221/',
         ],

@@ -18,12 +18,20 @@ class PageController extends Controller
             ]);
         }
 
-        $page = Page::where('slug', $slug)->firstOrFail();
+        $page = Page::query()
+            ->where('slug', $slug)
+            ->with(['sections', 'media'])
+            ->firstOrFail();
 
-        $view = 'pages.static.'.$slug;
+        if (! $page->is_published) {
+            abort(404);
+        }
+
+        $viewKey = $page->templateSlug();
+        $view = 'pages.static.'.$viewKey;
 
         if (! View::exists($view)) {
-            abort(404);
+            $view = 'pages.static.cms-generic';
         }
 
         return view($view, [

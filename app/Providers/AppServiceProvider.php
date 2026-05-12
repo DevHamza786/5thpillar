@@ -2,6 +2,10 @@
 
 namespace App\Providers;
 
+use App\View\Composers\MainLayoutComposer;
+use Illuminate\Auth\Middleware\Authenticate;
+use Illuminate\Pagination\Paginator;
+use Illuminate\Support\Facades\View;
 use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
@@ -19,6 +23,11 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
-        //
+        Authenticate::redirectUsing(fn ($request) => route('admin.login'));
+
+        Paginator::defaultView('vendor.pagination.admin-wp');
+        Paginator::defaultSimpleView('vendor.pagination.simple-admin-wp');
+
+        View::composer('layouts.app', MainLayoutComposer::class);
     }
 }

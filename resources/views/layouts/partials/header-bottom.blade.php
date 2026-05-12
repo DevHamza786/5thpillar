@@ -8,7 +8,7 @@
                         </div>
                         <div class="sc_layouts_title_breadcrumbs">
                             <div class="breadcrumbs">
-                                <a class="breadcrumbs_item home" href="{{ route('home') }}">Home</a>
+                                <a class="breadcrumbs_item home" href="{{ route('home') }}">{{ __('Home') }}</a>
                                 <span class="breadcrumbs_delimiter"></span>
                                 <span class="breadcrumbs_item current">{{ $pageTitle }}</span>
                             </div>
@@ -91,7 +91,7 @@
         <div class="search_wrap search_style_normal search_mobile">
             <div class="search_form_wrap">
                 <form role="search" method="get" class="search_form" action="{{ url('/') }}">
-                    <input type="text" class="search_field" placeholder="Search" value="{{ request('s', '') }}" name="s">
+                    <input type="text" class="search_field" placeholder="{{ __('Search') }}" value="{{ request('s', '') }}" name="s">
                     <button type="submit" class="search_submit trx_addons_icon-search" aria-label="Search"></button>
                 </form>
             </div>

@@ -7,25 +7,39 @@
 
 @section('structured_primary')
     @php
-        $fundArchives = [];
-        $archivePath = resource_path('data/fund_price_archives.php');
-        if (is_file($archivePath)) {
-            $loaded = require $archivePath;
-            $fundArchives = is_array($loaded) ? $loaded : [];
-        }
         $latestRow = null;
-        if ($fundArchives !== []) {
-            krsort($fundArchives, SORT_NUMERIC);
-            foreach ($fundArchives as $months) {
-                if (! is_array($months)) {
-                    continue;
-                }
-                $monthKeys = array_keys($months);
-                for ($mi = count($monthKeys) - 1; $mi >= 0; $mi--) {
-                    $rows = $months[$monthKeys[$mi]] ?? null;
-                    if (is_array($rows) && count($rows) > 0) {
-                        $latestRow = end($rows);
-                        break 2;
+        $cmsSnapshot = \App\Models\FundDailySnapshot::query()->orderByDesc('price_date')->first();
+        if ($cmsSnapshot !== null) {
+            $latestRow = [
+                'date' => $cmsSnapshot->price_date->format('F j, Y'),
+                'agg_bid' => $cmsSnapshot->agg_bid,
+                'agg_offer' => $cmsSnapshot->agg_offer,
+                'bal_bid' => $cmsSnapshot->bal_bid,
+                'bal_offer' => $cmsSnapshot->bal_offer,
+                'con_bid' => $cmsSnapshot->con_bid,
+                'con_offer' => $cmsSnapshot->con_offer,
+            ];
+        }
+        if ($latestRow === null) {
+            $fundArchives = [];
+            $archivePath = resource_path('data/fund_price_archives.php');
+            if (is_file($archivePath)) {
+                $loaded = require $archivePath;
+                $fundArchives = is_array($loaded) ? $loaded : [];
+            }
+            if ($fundArchives !== []) {
+                krsort($fundArchives, SORT_NUMERIC);
+                foreach ($fundArchives as $months) {
+                    if (! is_array($months)) {
+                        continue;
+                    }
+                    $monthKeys = array_keys($months);
+                    for ($mi = count($monthKeys) - 1; $mi >= 0; $mi--) {
+                        $rows = $months[$monthKeys[$mi]] ?? null;
+                        if (is_array($rows) && count($rows) > 0) {
+                            $latestRow = end($rows);
+                            break 2;
+                        }
                     }
                 }
             }

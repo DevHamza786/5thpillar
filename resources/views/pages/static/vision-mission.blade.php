@@ -1,9 +1,31 @@
 @extends('pages.layouts.structured-page')
 
-@section('structured_meta_title', 'Vision & Mission - 5th Pillar Family Takaful')
-@section('structured_page_title', 'Vision & Mission')
+@section('structured_meta_title', $page->trans('meta_title') ?: ($page->trans('title') . ' - 5th Pillar Family Takaful'))
+@section('structured_page_title', $page->trans('title'))
+@section('structured_hero_title', $page->trans('hero_title') ?: $page->trans('title'))
 
-@section('structured_hero_title', 'Vision & Mission')
+@php
+    $isUrdu = app()->getLocale() === 'ur';
+
+    if ($isUrdu) {
+        $visionTitle = 'ہمارا وژن';
+        $visionText = 'جدید شریعہ کے مطابق تکافل مصنوعات کے ذریعے اپنے کلائنٹس کی مالی گنجائش کو مضبوط بنانا اور انہیں زندگی میں ان کے عزیز مقاصد حاصل کرنے کے لیے بااختیار بنانا۔';
+        $missionTitle = 'ہمارا مشن';
+        $missionText = 'پاکستان میں مسلمانوں کو حج، جو کہ اسلام کا پانچواں ستون ہے، ادا کرنے کے لیے خاص طور پر منظم تکافل بچت اور تحفظ کے حل فراہم کرنا۔';
+    } else {
+        $visionTitle = 'Our Vision';
+        $visionText = 'Strengthen the financial capacity of our clients through innovative Shariah compliant Takaful products empowering them to achieve their cherished goals in life.';
+        $missionTitle = 'Our Mission';
+        $missionText = 'Provide structured Takaful savings and protection solutions specifically to Muslims in Pakistan to perform Hajj, the 5th Pillar of Islam.';
+    }
+
+    $mastheadBg = $isUrdu 
+        ? asset('assets/images/inner-banners-2-64d5da6709c98-e1691742724167.webp')
+        : asset('uploads/2017/2017/09/main-bannner-64d5d132c369d.webp');
+@endphp
+
+@section('structured_masthead_bg', "url('$mastheadBg')")
+@section('structured_body_class', 'ur-rtl ' . ($isUrdu ? 'ur-mode' : ''))
 
 @section('structured_primary')
     <article id="post-4106" class="post_item_single post_type_page post-4106 page type-page status-publish hentry laravel-vm-page">
@@ -22,13 +44,13 @@
                                                         <div class="sc_icons_image">
                                                             <img
                                                                 src="{{ asset('uploads/2023/2023/08/1-New.webp') }}"
-                                                                alt="Our Vision"
+                                                                alt="{{ $visionTitle }}"
                                                                 width="124"
                                                                 height="110"
                                                                 decoding="async"
                                                             >
                                                         </div>
-                                                        <h4 class="sc_icons_item_title"><span>Our Vision</span></h4>
+                                                        <h4 class="sc_icons_item_title"><span>{{ $visionTitle }}</span></h4>
                                                     </div>
                                                 </div>
                                                 <div class="vc_empty_space height_small laravel-vm-spacer" style="height: 28px">
@@ -38,7 +60,7 @@
                                                     <div class="wpb_text_column wpb_content_element">
                                                         <div class="wpb_wrapper">
                                                             <p class="laravel-vm-body">
-                                                                Strengthen the financial capacity of our clients through innovative Shariah compliant Takaful products empowering them to achieve their cherished goals in life.
+                                                                {{ $visionText }}
                                                             </p>
                                                         </div>
                                                     </div>
@@ -54,13 +76,13 @@
                                                         <div class="sc_icons_image">
                                                             <img
                                                                 src="{{ asset('uploads/2023/2023/08/2-New.webp') }}"
-                                                                alt="Our Mission"
+                                                                alt="{{ $missionTitle }}"
                                                                 width="124"
                                                                 height="110"
                                                                 decoding="async"
                                                             >
                                                         </div>
-                                                        <h4 class="sc_icons_item_title"><span>Our Mission</span></h4>
+                                                        <h4 class="sc_icons_item_title"><span>{{ $missionTitle }}</span></h4>
                                                     </div>
                                                 </div>
                                                 <div class="vc_empty_space height_small laravel-vm-spacer" style="height: 28px">
@@ -70,7 +92,7 @@
                                                     <div class="wpb_text_column wpb_content_element">
                                                         <div class="wpb_wrapper">
                                                             <p class="laravel-vm-body">
-                                                                Provide structured Takaful savings and protection solutions specifically to Muslims in Pakistan to perform Hajj, the 5th Pillar of Islam.
+                                                                {{ $missionText }}
                                                             </p>
                                                         </div>
                                                     </div>

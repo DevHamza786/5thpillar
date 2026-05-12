@@ -3,9 +3,10 @@
     <div class="laravel-header-topbar scheme_dark">
         <div class="content_wrap laravel-header-topbar__inner">
             <div class="laravel-lang-switcher icons">
-                <a href="{{ $englishUrl }}" class="facebook">English</a>
-                <a href="{{ $urduUrl }}" class="youtube">اردو</a>
+                <a href="{{ $englishUrl }}" @class(['active' => app()->getLocale() === 'en'])>English</a>
+                <a href="{{ $urduUrl }}" @class(['active' => app()->getLocale() === 'ur'])>اردو</a>
             </div>
+
         </div>
     </div>
 
@@ -26,7 +27,10 @@
 
     <div class="sc_layouts_row sc_layouts_row_type_compact sc_layouts_row_fixed scheme_dark laravel-header-menu-row">
         <div class="content_wrap laravel-header-menu-shell">
-            <div class="laravel-header-menu-spacer" aria-hidden="true"></div>
+            @if(app()->getLocale() !== 'ur')
+                <div class="laravel-header-menu-spacer" aria-hidden="true"></div>
+            @endif
+            
             <nav class="sc_layouts_menu sc_layouts_menu_default menu_hover_slide_line hide_on_mobile" id="sc_layouts_menu_main" data-animation-in="fadeInUpSmall" data-animation-out="fadeOutDownSmall">
                 <ul id="menu_main" class="sc_layouts_menu_nav menu_main_nav">
                     @foreach ($menu as $item)
@@ -81,19 +85,20 @@
                     @endforeach
                 </ul>
             </nav>
-
+            @if(app()->getLocale() !== 'ur')
             <div class="laravel-header-actions hide_on_mobile">
                 <div class="laravel-header-search search_wrap search_style_normal">
                     <div class="search_form_wrap">
                         <form role="search" method="get" class="search_form" action="{{ url('/') }}">
                             <label>
-                                <input type="text" class="search_field" placeholder="Search" value="{{ request('s', '') }}" name="s">
+                                <input type="text" class="search_field" placeholder="{{ __('Search') }}" value="{{ request('s', '') }}" name="s">
                             </label>
                             <button type="submit" class="search_submit trx_addons_icon-search" aria-label="Search"></button>
                         </form>
                     </div>
                 </div>
             </div>
+            @endif
 
             <div class="sc_layouts_iconed_text sc_layouts_menu_mobile_button">
                 <a class="sc_layouts_item_link sc_layouts_iconed_text_link" href="#" aria-label="Open mobile menu">
@@ -101,6 +106,7 @@
                 </a>
             </div>
         </div>
+
     </div>
 
     <div class="sc_layouts_row_fixed_placeholder" aria-hidden="true"></div>
