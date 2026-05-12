@@ -40,14 +40,27 @@ class AppServiceProvider extends ServiceProvider
     }
 
     /**
-     * If ASSET_URL points at the same host as APP_URL but omits APP_URL's path
-     * (common misconfiguration), asset() resolves to https://host/uploads/...
-     * instead of https://host/.../public/uploads/... — clear the misleading value.
+     * Normalize app.url / app.asset_url so asset() and route URLs work when the
+     * app is not at the domain root (e.g. /5thpillar/public).
+     *
+     * Laravel uses ASSET_URL for asset(); if it is only the bare domain while
+     * APP_URL includes a path, browsers request https://host/uploads/... (404).
+     * For any subdirectory APP_URL we force the asset base to match APP_URL exactly.
      */
     private function normalizeApplicationUrlsForSubdirectoryDeploy(): void
     {
         $appUrl = rtrim((string) config('app.url'), '/');
         config(['app.url' => $appUrl]);
+
+        $appPathRaw = parse_url($appUrl, PHP_URL_PATH);
+        $appPath = is_string($appPathRaw) ? rtrim($appPathRaw, '/') : '';
+        $isSubdirectory = ($appPath !== '' && $appPath !== '/');
+
+        if ($isSubdirectory) {
+            config(['app.asset_url' => $appUrl]);
+
+            return;
+        }
 
         $rawAsset = config('app.asset_url');
         if (! is_string($rawAsset) || $rawAsset === '') {
@@ -62,10 +75,10 @@ class AppServiceProvider extends ServiceProvider
             return;
         }
 
-        $appPath = rtrim((string) (parse_url($appUrl, PHP_URL_PATH) ?? ''), '/') ?: '';
-        $assetPath = rtrim((string) (parse_url($assetUrl, PHP_URL_PATH) ?? ''), '/') ?: '';
+        $assetPathRaw = parse_url($assetUrl, PHP_URL_PATH);
+        $assetPath = is_string($assetPathRaw) ? rtrim($assetPathRaw, '/') : '';
 
-        if ($appPath !== '' && $appPath !== '/' && ($assetPath === '' || $assetPath === '/' || strlen($assetPath) < strlen($appPath))) {
+        if ($assetPath === '' || $assetPath === '/' || strlen($assetPath) < strlen($appPath)) {
             config(['app.asset_url' => null]);
         }
     }
