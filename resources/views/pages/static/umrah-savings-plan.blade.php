@@ -4,47 +4,11 @@
     @if (config('services.recaptcha.site_key'))
         <script src="https://www.google.com/recaptcha/api.js" async defer></script>
     @endif
-    <style>
-        .laravel-hajj-bank-partner--align-left {
-            text-align: left;
-        }
-        .laravel-hajj-bank-partner--align-left .laravel-hajj-bank-partner__logo {
-            display: inline-block;
-            margin-left: 0;
-            margin-right: auto;
-        }
-        .laravel-hajj-bank-partner--align-left .laravel-hajj-bank-partner__logo img {
-            display: block;
-        }
-
-        .laravel-umrah-savings-page .post_content.entry-content {
-            text-align: left;
-            font-family: 'Raleway', sans-serif;
-            font-weight: 400;
-            font-style: normal;
-        }
-
-        .laravel-umrah-savings-page .laravel-hajj-section-title {
-            font-weight: 700 !important;
-            font-family: 'Raleway', sans-serif;
-            font-size: 38px !important;
-        }
-
-        .laravel-umrah-savings-page .post_content.entry-content p,
-        .laravel-umrah-savings-page .post_content.entry-content .laravel-hajj-lead,
-        .laravel-umrah-savings-page .laravel-product-feature-list,
-        .laravel-umrah-savings-page .laravel-product-feature-list li {
-            font-size: 1.125rem;
-            line-height: 1.65;
-            color: #000000;
-        }
-
-        .laravel-umrah-savings-page .laravel-hajj-av__caption,
-        .laravel-umrah-savings-page .laravel-hajj-av__caption a {
-            font-size: 1.05rem;
-            color: #000000;
-        }
-    </style>
+    @php
+        $__uspCss = public_path('assets/css/pages/umrah-savings-plan.css');
+        $__uspCssVer = is_file($__uspCss) ? (string) filemtime($__uspCss) : '1';
+    @endphp
+    <link rel="stylesheet" href="{{ asset('assets/css/pages/umrah-savings-plan.css') }}?v={{ $__uspCssVer }}">
 @endpush
 
 @section('structured_meta_title', 'Umrah Savings Plan - 5th Pillar Family Takaful')

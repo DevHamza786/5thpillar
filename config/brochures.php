@@ -16,7 +16,7 @@ return [
         'saadat-umrah' => env('BROCHURE_PDF_SAADAT_UMRAH', 'assets/pdfs/Umrah saving/BALF-Saadat-Umrah 01.pdf'),
         'umrah-noor' => env('BROCHURE_PDF_UMRAH_NOOR', 'assets/pdfs/Umrah saving/BIP-Umrah-Noor-Plan 02.pdf'),
         'safar-aasan-umrah' => env('BROCHURE_PDF_SAFAR_AASAN_UMRAH', 'assets/pdfs/Umrah saving/DIB-Safar-Asaan-Umrahh 03.pdf'),
-        'sukoon' => env('BROCHURE_PDF_SUKOON', 'uploads/2023/2023/09/Target-Asset-Mix-And-Charges.pdf'),
+        'sukoon' => env('BROCHURE_PDF_SUKOON', 'assets/pdfs/Regular saving/Sukoon-Saving-Plan_Brochure-Final.pdf'),
         'group-family-takaful' => env('BROCHURE_PDF_GROUP_FAMILY', 'uploads/2023/2023/09/Target-Asset-Mix-And-Charges.pdf'),
     ],
 

@@ -48,8 +48,8 @@
                             <div>{{ __('Lahore Branch: Office No. 618 - 620, 6th Floor, Al-Hafeez Executive, 30-C-3, Gulberg III, Lahore, Pakistan.') }}</div>
                         </div>
                         <div class="laravel-footer-hours">
-                            <h5 style="font-size: 1.4rem;">{{ __('Business Working Hours') }}:</h5>
-                            <p style="text-align: inherit; font-size: 14px; color: #b4a55c;">
+                            <h5 class="laravel-footer-hours__title">{{ __('Business Working Hours') }}:</h5>
+                            <p class="laravel-footer-hours__text">
                                 @if(app()->getLocale() === 'ur')
                                     {{ __('Monday to Friday') }}
                                 @else

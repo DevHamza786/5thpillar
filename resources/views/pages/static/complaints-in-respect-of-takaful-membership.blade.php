@@ -1,7 +1,11 @@
 @extends('pages.layouts.structured-page')
 
 @push('head')
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Nastaliq+Urdu:wght@400;600;700&display=swap">
+    @php
+        $__ctCss = public_path('assets/css/pages/complaints-takaful-membership.css');
+        $__ctCssVer = is_file($__ctCss) ? (string) filemtime($__ctCss) : '1';
+    @endphp
+    <link rel="stylesheet" href="{{ asset('assets/css/pages/complaints-takaful-membership.css') }}?v={{ $__ctCssVer }}">
 @endpush
 
 @section('structured_meta_title', 'Complaints in Respect of Takaful Membership - 5th Pillar Family Takaful')

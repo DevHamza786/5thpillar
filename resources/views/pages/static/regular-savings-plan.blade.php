@@ -4,6 +4,11 @@
     @if (config('services.recaptcha.site_key'))
         <script src="https://www.google.com/recaptcha/api.js" async defer></script>
     @endif
+    @php
+        $__rspCss = public_path('assets/css/pages/regular-savings-plan.css');
+        $__rspCssVer = is_file($__rspCss) ? (string) filemtime($__rspCss) : '1';
+    @endphp
+    <link rel="stylesheet" href="{{ asset('assets/css/pages/regular-savings-plan.css') }}?v={{ $__rspCssVer }}">
 @endpush
 
 @section('structured_meta_title', 'Sukoon Takaful Saving Plan - 5th Pillar Family Takaful')
@@ -12,10 +17,10 @@
 @section('structured_hero_title', 'Regular Savings Plan')
 
 @section('structured_primary')
-    <article class="post_item_single type-page hentry laravel-hajj-page">
+    <article class="post_item_single type-page hentry laravel-hajj-page laravel-sukoon-savings-page">
         <div class="post_content entry-content">
-            <section class="laravel-hajj-hero-intro">
-                <h2 class="laravel-hajj-section-title" style="margin-top:0">Sukoon Savings Plan</h2>
+            <section class="laravel-hajj-hero-intro laravel-sukoon-card">
+                <h2 class="laravel-hajj-section-title">Sukoon Savings Plan</h2>
                 <p class="laravel-hajj-lead">
                     The 5th Pillar Family Takaful Sukoon Savings Plan offers a comprehensive solution for securing your family&rsquo;s financial future while maintaining their quality of life. This Shariah-compliant plan allows you to save, invest, and grow your wealth, with family Takaful coverage ensuring financial security in your absence. Key features include:
                 </p>
@@ -31,9 +36,6 @@
                 </p>
                 <div class="laravel-hajj-actions">
                     <button type="button" class="laravel-hajj-btn laravel-brochure-trigger" data-brochure-key="sukoon">Download Brochure</button>
-                </div>
-                <div class="laravel-hajj-actions" style="margin-top:0.75rem">
-                    <button type="button" class="laravel-hajj-btn laravel-brochure-trigger" data-brochure-key="sukoon">Download Our Brochure</button>
                 </div>
             </section>
         </div>

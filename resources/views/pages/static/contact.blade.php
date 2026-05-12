@@ -128,7 +128,6 @@
                             src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d14484.91520674259!2d67.0340525!3d24.8218479!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3eb33de7bd00d03%3A0xc5eab8e589e5cc13!2s5th%20Pillar%20Family%20Takaful%20Limited!5e0!3m2!1sen!2s!4v1686651161641!5m2!1sen!2s"
                             width="600"
                             height="450"
-                            style="border:0;"
                             allowfullscreen=""
                             loading="lazy"
                             referrerpolicy="no-referrer-when-downgrade"

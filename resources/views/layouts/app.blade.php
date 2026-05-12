@@ -33,13 +33,6 @@
         $__bridgeVer = is_file($__bridgeCss) ? (string) filemtime($__bridgeCss) : '1';
     @endphp
     <link rel="stylesheet" href="{{ asset('assets/vendor/original-theme/css/laravel-bridge.css') }}?v={{ $__bridgeVer }}">
-    @if(app()->getLocale() === 'ur')
-    <style>
-        body, h1, h2, h3, h4, h5, h6, p, a, span, li, button, input {
-            font-family: 'Noto Sans Urdu', sans-serif !important;
-        }
-    </style>
-    @endif
     @stack('head')
 
 </head>
@@ -70,33 +63,13 @@
     <script src="{{ asset('assets/vendor/original-theme/js/laravel-bridge.js') }}"></script>
     
     @if(app()->getLocale() === 'ur')
-    <div id="google_translate_element" style="display:none"></div>
-    <script type="text/javascript">
-        function googleTranslateElementInit() {
-            new google.translate.TranslateElement({
-                pageLanguage: 'en',
-                includedLanguages: 'ur',
-                layout: google.translate.TranslateElement.InlineLayout.SIMPLE,
-                autoDisplay: false
-            }, 'google_translate_element');
-            
-            setTimeout(function() {
-                var select = document.querySelector('select.goog-te-combo');
-                if (select) {
-                    select.value = 'ur';
-                    select.dispatchEvent(new Event('change'));
-                }
-            }, 1000);
-        }
-    </script>
-    <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
-    <style>
-        .goog-te-banner-frame.skiptranslate, .goog-te-gadget-icon, .goog-logo-link { display: none !important; }
-        body { top: 0px !important; }
-        .goog-tooltip { display: none !important; }
-        .goog-tooltip:hover { display: none !important; }
-        .goog-text-highlight { background-color: transparent !important; border: none !important; box-shadow: none !important; }
-    </style>
+        <div id="google_translate_element" hidden aria-hidden="true"></div>
+        @php
+            $__gtJs = public_path('assets/js/laravel-google-translate.js');
+            $__gtVer = is_file($__gtJs) ? (string) filemtime($__gtJs) : '1';
+        @endphp
+        <script src="{{ asset('assets/js/laravel-google-translate.js') }}?v={{ $__gtVer }}"></script>
+        <script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit" defer></script>
     @endif
 
     @stack('scripts')

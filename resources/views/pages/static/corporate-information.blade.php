@@ -42,7 +42,7 @@
                     <div class="wpb_column vc_column_container vc_col-sm-12 sc_layouts_column_icons_position_left">
                         <div class="vc_column-inner">
                             <div class="wpb_wrapper">
-                                <h2 style="text-align: {{ $isUrdu ? 'right' : 'left' }};font-family:{{ $isUrdu ? 'Noto Sans Urdu' : 'Raleway' }};font-weight:700;font-style:normal" class="vc_custom_heading">{{ $labels['information'] }}</h2>
+                                <h2 class="vc_custom_heading laravel-corp-info-page__h2">{{ $labels['information'] }}</h2>
 
                                 <div class="vc_row wpb_row vc_inner vc_row-fluid laravel-corp-info-page__inner-row">
                                     <div class="wpb_column vc_column_container vc_col-sm-6 sc_layouts_column_icons_position_left">
@@ -50,7 +50,7 @@
                                             <div class="wpb_wrapper">
                                                 <div class="wpb_text_column wpb_content_element">
                                                     <div class="wpb_wrapper">
-                                                        <p><span style="font-family: raleway; font-size: 14pt;"><strong>{{ $labels['company_name'] }}</strong></span></p>
+                                                        <p><span class="laravel-corp-info-page__cell-text"><strong>{{ $labels['company_name'] }}</strong></span></p>
                                                     </div>
                                                 </div>
                                             </div>
@@ -61,7 +61,7 @@
                                             <div class="wpb_wrapper">
                                                 <div class="wpb_text_column wpb_content_element">
                                                     <div class="wpb_wrapper">
-                                                        <p><span style="font-family: raleway; font-size: 14pt;">5th Pillar Family Takaful Limited</span></p>
+                                                        <p><span class="laravel-corp-info-page__cell-text">5th Pillar Family Takaful Limited</span></p>
                                                     </div>
                                                 </div>
                                             </div>
@@ -73,7 +73,7 @@
                                     <div class="wpb_column vc_column_container vc_col-sm-12 sc_layouts_column_icons_position_left">
                                         <div class="vc_column-inner">
                                             <div class="wpb_wrapper">
-                                                <div class="vc_empty_space height_small" style="height: 32px">
+                                                <div class="vc_empty_space height_small laravel-corp-info-page__spacer">
                                                     <span class="vc_empty_space_inner"></span>
                                                 </div>
                                             </div>
@@ -87,7 +87,7 @@
                                             <div class="wpb_wrapper">
                                                 <div class="wpb_text_column wpb_content_element">
                                                     <div class="wpb_wrapper">
-                                                        <p><span style="font-family: raleway; font-size: 14pt;"><strong>{{ $labels['incorporation_no'] }}</strong></span></p>
+                                                        <p><span class="laravel-corp-info-page__cell-text"><strong>{{ $labels['incorporation_no'] }}</strong></span></p>
                                                     </div>
                                                 </div>
                                             </div>
@@ -98,7 +98,7 @@
                                             <div class="wpb_wrapper">
                                                 <div class="wpb_text_column wpb_content_element">
                                                     <div class="wpb_wrapper">
-                                                        <p><span style="font-family: raleway; font-size: 14pt;">0148761</span></p>
+                                                        <p><span class="laravel-corp-info-page__cell-text">0148761</span></p>
                                                     </div>
                                                 </div>
                                             </div>
@@ -110,7 +110,7 @@
                                     <div class="wpb_column vc_column_container vc_col-sm-12 sc_layouts_column_icons_position_left">
                                         <div class="vc_column-inner">
                                             <div class="wpb_wrapper">
-                                                <div class="vc_empty_space height_small" style="height: 32px">
+                                                <div class="vc_empty_space height_small laravel-corp-info-page__spacer">
                                                     <span class="vc_empty_space_inner"></span>
                                                 </div>
                                             </div>
@@ -124,7 +124,7 @@
                                             <div class="wpb_wrapper">
                                                 <div class="wpb_text_column wpb_content_element">
                                                     <div class="wpb_wrapper">
-                                                        <p><span style="font-family: raleway; font-size: 14pt;"><strong>{{ $labels['ntn'] }}</strong></span></p>
+                                                        <p><span class="laravel-corp-info-page__cell-text"><strong>{{ $labels['ntn'] }}</strong></span></p>
                                                     </div>
                                                 </div>
                                             </div>
@@ -135,7 +135,7 @@
                                             <div class="wpb_wrapper">
                                                 <div class="wpb_text_column wpb_content_element">
                                                     <div class="wpb_wrapper">
-                                                        <p><span style="font-family: raleway; font-size: 14pt;">6994191-3</span></p>
+                                                        <p><span class="laravel-corp-info-page__cell-text">6994191-3</span></p>
                                                     </div>
                                                 </div>
                                             </div>
@@ -147,7 +147,7 @@
                                     <div class="wpb_column vc_column_container vc_col-sm-12 sc_layouts_column_icons_position_left">
                                         <div class="vc_column-inner">
                                             <div class="wpb_wrapper">
-                                                <div class="vc_empty_space height_small" style="height: 32px">
+                                                <div class="vc_empty_space height_small laravel-corp-info-page__spacer">
                                                     <span class="vc_empty_space_inner"></span>
                                                 </div>
                                             </div>
@@ -161,7 +161,7 @@
                                             <div class="wpb_wrapper">
                                                 <div class="wpb_text_column wpb_content_element">
                                                     <div class="wpb_wrapper">
-                                                        <p><span style="font-family: raleway; font-size: 14pt;"><strong>{{ $labels['license_no'] }}</strong></span></p>
+                                                        <p><span class="laravel-corp-info-page__cell-text"><strong>{{ $labels['license_no'] }}</strong></span></p>
                                                     </div>
                                                 </div>
                                             </div>
@@ -172,7 +172,7 @@
                                             <div class="wpb_wrapper">
                                                 <div class="wpb_text_column wpb_content_element">
                                                     <div class="wpb_wrapper">
-                                                        <p><span style="font-family: raleway; font-size: 14pt;">{{ $labels['license_date'] }}</span></p>
+                                                        <p><span class="laravel-corp-info-page__cell-text">{{ $labels['license_date'] }}</span></p>
                                                     </div>
                                                 </div>
                                             </div>
@@ -186,7 +186,7 @@
                                             <div class="wpb_wrapper">
                                                 <div class="wpb_text_column wpb_content_element">
                                                     <div class="wpb_wrapper">
-                                                        <p><span style="font-family: raleway; font-size: 14pt;"><strong>{{ $labels['status'] }}</strong></span></p>
+                                                        <p><span class="laravel-corp-info-page__cell-text"><strong>{{ $labels['status'] }}</strong></span></p>
                                                     </div>
                                                 </div>
                                             </div>
@@ -197,7 +197,7 @@
                                             <div class="wpb_wrapper">
                                                 <div class="wpb_text_column wpb_content_element">
                                                     <div class="wpb_wrapper">
-                                                        <p><span style="font-family: raleway; font-size: 14pt;">{{ $labels['status_desc'] }}</span></p>
+                                                        <p><span class="laravel-corp-info-page__cell-text">{{ $labels['status_desc'] }}</span></p>
                                                     </div>
                                                 </div>
                                             </div>
@@ -209,7 +209,7 @@
                                     <div class="wpb_column vc_column_container vc_col-sm-12 sc_layouts_column_icons_position_left">
                                         <div class="vc_column-inner">
                                             <div class="wpb_wrapper">
-                                                <div class="vc_empty_space height_small" style="height: 32px">
+                                                <div class="vc_empty_space height_small laravel-corp-info-page__spacer">
                                                     <span class="vc_empty_space_inner"></span>
                                                 </div>
                                             </div>
@@ -223,7 +223,7 @@
                                             <div class="wpb_wrapper">
                                                 <div class="wpb_text_column wpb_content_element">
                                                     <div class="wpb_wrapper">
-                                                        <p><span style="font-family: raleway; font-size: 14pt;"><strong>{{ $labels['address'] }}</strong></span></p>
+                                                        <p><span class="laravel-corp-info-page__cell-text"><strong>{{ $labels['address'] }}</strong></span></p>
                                                     </div>
                                                 </div>
                                             </div>
@@ -234,7 +234,7 @@
                                             <div class="wpb_wrapper">
                                                 <div class="wpb_text_column wpb_content_element">
                                                     <div class="wpb_wrapper">
-                                                        <p><span style="font-family: raleway; font-size: 14pt;">{{ $isUrdu ? 'سویٹ # 01-06، دوسری منزل، ایمرالڈ ٹاور، کلفٹن – 5، کراچی' : 'Suite # 01-06, Second Floor, Emerald Tower, Clifton – 5, Karachi' }}</span></p>
+                                                        <p><span class="laravel-corp-info-page__cell-text">{{ $isUrdu ? 'سویٹ # 01-06، دوسری منزل، ایمرالڈ ٹاور، کلفٹن – 5، کراچی' : 'Suite # 01-06, Second Floor, Emerald Tower, Clifton – 5, Karachi' }}</span></p>
                                                     </div>
                                                 </div>
                                             </div>
@@ -246,7 +246,7 @@
                                     <div class="wpb_column vc_column_container vc_col-sm-12 sc_layouts_column_icons_position_left">
                                         <div class="vc_column-inner">
                                             <div class="wpb_wrapper">
-                                                <div class="vc_empty_space height_small" style="height: 32px">
+                                                <div class="vc_empty_space height_small laravel-corp-info-page__spacer">
                                                     <span class="vc_empty_space_inner"></span>
                                                 </div>
                                             </div>
@@ -260,7 +260,7 @@
                                             <div class="wpb_wrapper">
                                                 <div class="wpb_text_column wpb_content_element">
                                                     <div class="wpb_wrapper">
-                                                        <p><span style="font-family: raleway; font-size: 14pt;"><strong>{{ $labels['phone'] }}</strong></span></p>
+                                                        <p><span class="laravel-corp-info-page__cell-text"><strong>{{ $labels['phone'] }}</strong></span></p>
                                                     </div>
                                                 </div>
                                             </div>
@@ -271,7 +271,7 @@
                                             <div class="wpb_wrapper">
                                                 <div class="wpb_text_column wpb_content_element">
                                                     <div class="wpb_wrapper">
-                                                        <p><span style="font-family: raleway; font-size: 14pt;">Ph: 021-36492074</span></p>
+                                                        <p><span class="laravel-corp-info-page__cell-text">Ph: 021-36492074</span></p>
                                                     </div>
                                                 </div>
                                             </div>
@@ -283,7 +283,7 @@
                                     <div class="wpb_column vc_column_container vc_col-sm-12 sc_layouts_column_icons_position_left">
                                         <div class="vc_column-inner">
                                             <div class="wpb_wrapper">
-                                                <div class="vc_empty_space height_small" style="height: 32px">
+                                                <div class="vc_empty_space height_small laravel-corp-info-page__spacer">
                                                     <span class="vc_empty_space_inner"></span>
                                                 </div>
                                             </div>
@@ -297,7 +297,7 @@
                                             <div class="wpb_wrapper">
                                                 <div class="wpb_text_column wpb_content_element">
                                                     <div class="wpb_wrapper">
-                                                        <p><span style="font-family: raleway; font-size: 14pt;"><strong>{{ $labels['email'] }}</strong></span></p>
+                                                        <p><span class="laravel-corp-info-page__cell-text"><strong>{{ $labels['email'] }}</strong></span></p>
                                                     </div>
                                                 </div>
                                             </div>
@@ -308,7 +308,7 @@
                                             <div class="wpb_wrapper">
                                                 <div class="wpb_text_column wpb_content_element">
                                                     <div class="wpb_wrapper">
-                                                        <p><span style="font-family: raleway; font-size: 14pt;"><strong><a href="mailto:info@5thpillartakaful.com">info@5thpillartakaful.com</a></strong></span></p>
+                                                        <p><span class="laravel-corp-info-page__cell-text"><strong><a href="mailto:info@5thpillartakaful.com">info@5thpillartakaful.com</a></strong></span></p>
                                                     </div>
                                                 </div>
                                             </div>
@@ -320,7 +320,7 @@
                                     <div class="wpb_column vc_column_container vc_col-sm-12 sc_layouts_column_icons_position_left">
                                         <div class="vc_column-inner">
                                             <div class="wpb_wrapper">
-                                                <div class="vc_empty_space height_small" style="height: 32px">
+                                                <div class="vc_empty_space height_small laravel-corp-info-page__spacer">
                                                     <span class="vc_empty_space_inner"></span>
                                                 </div>
                                             </div>
@@ -334,7 +334,7 @@
                                             <div class="wpb_wrapper">
                                                 <div class="wpb_text_column wpb_content_element">
                                                     <div class="wpb_wrapper">
-                                                        <p><span style="font-family: raleway; font-size: 14pt;"><strong>{{ $labels['website'] }}</strong></span></p>
+                                                        <p><span class="laravel-corp-info-page__cell-text"><strong>{{ $labels['website'] }}</strong></span></p>
                                                     </div>
                                                 </div>
                                             </div>
@@ -345,7 +345,7 @@
                                             <div class="wpb_wrapper">
                                                 <div class="wpb_text_column wpb_content_element">
                                                     <div class="wpb_wrapper">
-                                                        <p><span style="font-family: raleway; font-size: 14pt;"><strong><a href="https://5thpillartakaful.com" rel="noopener noreferrer">www.5thpillartakaful.com</a></strong></span></p>
+                                                        <p><span class="laravel-corp-info-page__cell-text"><strong><a href="https://5thpillartakaful.com" rel="noopener noreferrer">www.5thpillartakaful.com</a></strong></span></p>
                                                     </div>
                                                 </div>
                                             </div>
@@ -357,7 +357,7 @@
                                     <div class="wpb_column vc_column_container vc_col-sm-12 sc_layouts_column_icons_position_left">
                                         <div class="vc_column-inner">
                                             <div class="wpb_wrapper">
-                                                <div class="vc_empty_space height_small" style="height: 32px">
+                                                <div class="vc_empty_space height_small laravel-corp-info-page__spacer">
                                                     <span class="vc_empty_space_inner"></span>
                                                 </div>
                                             </div>
@@ -371,7 +371,7 @@
                                             <div class="wpb_wrapper">
                                                 <div class="wpb_text_column wpb_content_element">
                                                     <div class="wpb_wrapper">
-                                                        <p><span style="font-family: raleway; font-size: 14pt;"><strong>{{ $labels['ceo'] }}</strong></span></p>
+                                                        <p><span class="laravel-corp-info-page__cell-text"><strong>{{ $labels['ceo'] }}</strong></span></p>
                                                     </div>
                                                 </div>
                                             </div>
@@ -382,7 +382,7 @@
                                             <div class="wpb_wrapper">
                                                 <div class="wpb_text_column wpb_content_element">
                                                     <div class="wpb_wrapper">
-                                                        <p><span style="font-family: raleway; font-size: 14pt;">Nasar us Samad Qureshi</span></p>
+                                                        <p><span class="laravel-corp-info-page__cell-text">Nasar us Samad Qureshi</span></p>
                                                     </div>
                                                 </div>
                                             </div>
@@ -398,7 +398,7 @@
                     <div class="wpb_column vc_column_container vc_col-sm-12 sc_layouts_column_icons_position_left">
                         <div class="vc_column-inner">
                             <div class="wpb_wrapper">
-                                <h2 style="text-align: {{ $isUrdu ? 'right' : 'left' }};font-family:{{ $isUrdu ? 'Noto Sans Urdu' : 'Raleway' }};font-weight:700;font-style:normal" class="vc_custom_heading">{{ $labels['regulators'] }}</h2>
+                                <h2 class="vc_custom_heading laravel-corp-info-page__h2">{{ $labels['regulators'] }}</h2>
                                 <div class="vc_row wpb_row vc_inner vc_row-fluid laravel-corp-info-page__inner-row">
                                     <div class="wpb_column vc_column_container vc_col-sm-6 sc_layouts_column_icons_position_left">
                                         <div class="vc_column-inner">
@@ -406,12 +406,12 @@
                                                 <div class="wpb_text_column wpb_content_element laravel-corp-info-page__regulators">
                                                     <div class="wpb_wrapper">
                                                         <p>
-                                                            <span style="font-size: 14pt;"><strong>{{ $isUrdu ? 'سیکیورٹیز اینڈ ایکسچینج کمیشن آف پاکستان (ایس ای سی پی)' : 'Securities and Exchange Commission of Pakistan (SECP)' }}</strong></span><br>
-                                                            <span style="font-size: 14pt;"><strong><u><a href="https://www.secp.gov.pk/" target="_blank" rel="noopener noreferrer">http://www.secp.gov.pk/</a></u></strong></span>
+                                                            <span><strong>{{ $isUrdu ? 'سیکیورٹیز اینڈ ایکسچینج کمیشن آف پاکستان (ایس ای سی پی)' : 'Securities and Exchange Commission of Pakistan (SECP)' }}</strong></span><br>
+                                                            <span><strong><u><a href="https://www.secp.gov.pk/" target="_blank" rel="noopener noreferrer">http://www.secp.gov.pk/</a></u></strong></span>
                                                         </p>
                                                         <p>
-                                                            <span style="font-size: 14pt;"><strong>{{ $isUrdu ? 'فیڈرل بورڈ آف ریونیو' : 'Federal Board of Revenue' }}</strong></span><br>
-                                                            <span style="font-size: 14pt;"><strong><u><a href="https://www.fbr.gov.pk/" target="_blank" rel="noopener noreferrer">http://www.fbr.gov.pk/</a></u></strong></span>
+                                                            <span><strong>{{ $isUrdu ? 'فیڈرل بورڈ آف ریونیو' : 'Federal Board of Revenue' }}</strong></span><br>
+                                                            <span><strong><u><a href="https://www.fbr.gov.pk/" target="_blank" rel="noopener noreferrer">http://www.fbr.gov.pk/</a></u></strong></span>
                                                         </p>
                                                     </div>
                                                 </div>

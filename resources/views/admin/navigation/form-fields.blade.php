@@ -84,22 +84,9 @@
 </p>
 
 @push('scripts')
-    <script>
-        (function () {
-            var sel = document.getElementById('link_type');
-            if (!sel) return;
-            function sync() {
-                var v = sel.value;
-                document.querySelectorAll('.field-link').forEach(function (el) {
-                    el.style.display = 'none';
-                });
-                if (v === 'page_slug') document.getElementById('wrap-page_slug').style.display = '';
-                if (v === 'named_route') document.getElementById('wrap-route_name').style.display = '';
-                if (v === 'custom_url') document.getElementById('wrap-custom_url').style.display = '';
-                if (v === 'media') document.getElementById('wrap-cms_media_id').style.display = '';
-            }
-            sel.addEventListener('change', sync);
-            sync();
-        })();
-    </script>
+    @php
+        $__navFfJs = public_path('assets/js/admin/admin-navigation-form-fields.js');
+        $__navFfJsVer = is_file($__navFfJs) ? (string) filemtime($__navFfJs) : '1';
+    @endphp
+    <script src="{{ asset('assets/js/admin/admin-navigation-form-fields.js') }}?v={{ $__navFfJsVer }}" defer></script>
 @endpush

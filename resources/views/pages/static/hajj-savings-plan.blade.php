@@ -4,19 +4,11 @@
     @if (config('services.recaptcha.site_key'))
         <script src="https://www.google.com/recaptcha/api.js" async defer></script>
     @endif
-    <style>
-        .laravel-hajj-bank-partner--align-left {
-            text-align: left;
-        }
-        .laravel-hajj-bank-partner--align-left .laravel-hajj-bank-partner__logo {
-            display: inline-block;
-            margin-left: 0;
-            margin-right: auto;
-        }
-        .laravel-hajj-bank-partner--align-left .laravel-hajj-bank-partner__logo img {
-            display: block;
-        }
-    </style>
+    @php
+        $__hspCss = public_path('assets/css/pages/hajj-savings-plan.css');
+        $__hspCssVer = is_file($__hspCss) ? (string) filemtime($__hspCss) : '1';
+    @endphp
+    <link rel="stylesheet" href="{{ asset('assets/css/pages/hajj-savings-plan.css') }}?v={{ $__hspCssVer }}">
 @endpush
 
 @section('structured_meta_title', 'Hajj Savings Plan - 5th Pillar Family Takaful')
