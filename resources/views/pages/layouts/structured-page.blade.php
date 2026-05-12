@@ -46,6 +46,8 @@
         $mastheadBg = $__cmsMastheadBg;
         if ($mastheadBg === '') {
             $mastheadBg = "url('" . asset('uploads/2017/2017/09/main-bannner-64d5d132c369d.webp') . "')";
+        } else {
+            $mastheadBg = \App\Support\PublicPath::rewriteMastheadBackground($mastheadBg);
         }
     @endphp
     <div class="laravel-inner-masthead" role="region" aria-label="Page heading" style="--laravel-inner-masthead-bg: {{ $mastheadBg }};">

@@ -14,7 +14,7 @@
     <!-- Debug: Locale={{ $currentLocale }}, HasUrduContent={{ $hasUrduContent ? 'Yes' : 'No' }} -->
     @if (filled($page->trans('content')))
         <div class="laravel-cms-generic-body">
-            {!! $page->trans('content') !!}
+            {!! \App\Support\PublicPath::rewriteHtmlPublicPaths($page->trans('content')) !!}
         </div>
     @endif
 @endsection

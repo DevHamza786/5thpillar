@@ -11,7 +11,7 @@
                 @endif
                 @if (filled($section->trans('body_html')))
                     <div class="laravel-cms-section__body">
-                        {!! $section->trans('body_html') !!}
+                        {!! \App\Support\PublicPath::rewriteHtmlPublicPaths($section->trans('body_html')) !!}
                     </div>
                 @endif
             </section>

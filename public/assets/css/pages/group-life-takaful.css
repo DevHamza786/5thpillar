@@ -3,7 +3,7 @@
 .laravel-inner-masthead {
     background-color: #13162b;
     background-image: linear-gradient(180deg, rgba(0, 0, 0, 0.52) 0%, rgba(0, 0, 0, 0.38) 100%),
-        url('/assets/images/Inner-Banners.webp') !important;
+        url('../../images/Inner-Banners.webp') !important;
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -87,7 +87,7 @@
 }
 
 .laravel-group-life-page .laravel-gl-benefits-banner5__bg {
-    background-image: url('/assets/images/Banner-5.webp');
+    background-image: url('../../images/Banner-5.webp');
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -177,7 +177,7 @@
 }
 
 .laravel-group-life-page .laravel-gl-benefits-panel__bg {
-    background-image: url('/assets/images/Banner-5.webp');
+    background-image: url('../../images/Banner-5.webp');
     background-position: center;
     background-size: cover;
     bottom: 0;
