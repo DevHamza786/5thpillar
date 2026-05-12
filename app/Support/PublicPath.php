@@ -3,8 +3,9 @@
 namespace App\Support;
 
 /**
- * Public files under /uploads/... should use root-relative hrefs so they never
- * bake APP_URL from another machine (e.g. localhost after seeding on dev).
+ * Public files under public/uploads/... — use Laravel's asset() helper so URLs
+ * respect APP_URL (including subdirectory deployments like /5thpillar/public).
+ * Root-relative "/uploads/..." breaks when the app is not at the domain root.
  */
 final class PublicPath
 {
@@ -18,9 +19,11 @@ final class PublicPath
         '/uploads/2023/2023/12/' => '/uploads/2023/12/',
     ];
 
-    public static function uploadHref(string $pathUnderWebRoot): string
+    public static function uploadHref(string $pathUnderPublic): string
     {
-        return '/'.ltrim($pathUnderWebRoot, '/');
+        $trimmed = ltrim($pathUnderPublic, '/');
+
+        return asset($trimmed);
     }
 
     /**
@@ -43,7 +46,8 @@ final class PublicPath
     }
 
     /**
-     * Turn stored menu URLs into a root-relative /uploads/... path when possible.
+     * Normalize stored menu URLs to asset() URLs for /uploads/... paths
+     * (strips wrong host from old seeds; respects current APP_URL).
      */
     public static function normalizeMenuCustomUrl(string $url): string
     {
@@ -53,16 +57,26 @@ final class PublicPath
         }
 
         if (str_starts_with($trimmed, '/') && ! str_starts_with($trimmed, '//')) {
-            return self::canonicalUploadPath($trimmed);
+            $path = self::canonicalUploadPath($trimmed);
+
+            return asset(ltrim($path, '/'));
         }
 
         if (str_starts_with($trimmed, 'http://') || str_starts_with($trimmed, 'https://')) {
             $path = parse_url($trimmed, PHP_URL_PATH);
             if (is_string($path) && str_starts_with($path, '/uploads/')) {
-                return self::canonicalUploadPath($path);
+                $path = self::canonicalUploadPath($path);
+
+                return asset(ltrim($path, '/'));
             }
 
             return $trimmed;
+        }
+
+        if (str_starts_with($trimmed, 'uploads/')) {
+            $path = self::canonicalUploadPath('/'.$trimmed);
+
+            return asset(ltrim($path, '/'));
         }
 
         return $trimmed;
