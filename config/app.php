@@ -52,7 +52,21 @@ return [
     |
     */
 
-    'url' => env('APP_URL', 'http://localhost'),
+    'url' => rtrim((string) env('APP_URL', 'http://localhost'), '/'),
+
+    /*
+    |--------------------------------------------------------------------------
+    | Asset URL
+    |--------------------------------------------------------------------------
+    |
+    | When ASSET_URL is set to the bare domain (e.g. https://example.com) while
+    | APP_URL includes a subdirectory (e.g. https://example.com/app/public),
+    | Laravel would generate broken asset links at the domain root. Leave
+    | ASSET_URL unset unless you use a separate CDN base that includes the path.
+    |
+    */
+
+    'asset_url' => env('ASSET_URL'),
 
     /*
     |--------------------------------------------------------------------------
