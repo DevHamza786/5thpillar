@@ -45,7 +45,7 @@
 
         $mastheadBg = $__cmsMastheadBg;
         if ($mastheadBg === '') {
-            $mastheadBg = "url('" . asset('uploads/2017/2017/09/main-bannner-64d5d132c369d.webp') . "')";
+            $mastheadBg = "url('" . asset('assets/images/main-bannner-64d5d132c369d.webp') . "')";
         } else {
             $mastheadBg = \App\Support\PublicPath::rewriteMastheadBackground($mastheadBg);
         }

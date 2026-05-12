@@ -9,7 +9,7 @@
 
     $mastheadBg = $isUrdu 
         ? asset('assets/images/inner-banners-2-64d5da6709c98-e1691742724167.webp')
-        : asset('uploads/2017/2017/09/main-bannner-64d5d132c369d.webp');
+        : asset('assets/images/main-bannner-64d5d132c369d.webp');
 @endphp
 
 @section('structured_masthead_bg', "url('$mastheadBg')")
