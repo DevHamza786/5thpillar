@@ -39,13 +39,13 @@
                                     <span class="laravel-sitemap__subheading">Notices of General Meetings</span>
                                     <ul class="laravel-sitemap__nest-list">
                                         <li>
-                                            <a href="{{ asset('uploads/2026/2026/04/Notice-of-AGM-2026.pdf') }}" target="_blank" rel="noopener noreferrer">Notice of AGM 2026</a>
+                                            <a href="{{ \App\Support\PublicPath::uploadHref('uploads/2026/04/Notice-of-AGM-2026.pdf') }}" target="_blank" rel="noopener noreferrer">Notice of AGM 2026</a>
                                         </li>
                                         <li>
-                                            <a href="{{ asset('uploads/2026/2026/04/Notice-of-EoGM-2025.pdf') }}" target="_blank" rel="noopener noreferrer">Notice of EoGM 2025</a>
+                                            <a href="{{ \App\Support\PublicPath::uploadHref('uploads/2026/04/Notice-of-EoGM-2025.pdf') }}" target="_blank" rel="noopener noreferrer">Notice of EoGM 2025</a>
                                         </li>
                                         <li>
-                                            <a href="{{ asset('uploads/2026/2026/04/Notice-of-AGM-2025.pdf') }}" target="_blank" rel="noopener noreferrer">Notice of AGM 2025</a>
+                                            <a href="{{ \App\Support\PublicPath::uploadHref('uploads/2026/04/Notice-of-AGM-2025.pdf') }}" target="_blank" rel="noopener noreferrer">Notice of AGM 2025</a>
                                         </li>
                                     </ul>
                                 </li>
@@ -59,7 +59,7 @@
                                     <span class="laravel-sitemap__subheading">Takaful Unit-Linked Funds</span>
                                     <ul class="laravel-sitemap__nest-list">
                                         <li>
-                                            <a href="{{ asset('uploads/2025/2025/01/web-page.pdf') }}" target="_blank" rel="noopener noreferrer">Target Asset Mix and Charges</a>
+                                            <a href="{{ \App\Support\PublicPath::uploadHref('uploads/2025/2025/01/web-page.pdf') }}" target="_blank" rel="noopener noreferrer">Target Asset Mix and Charges</a>
                                         </li>
                                         <li><a href="{{ route('pages.show', ['slug' => 'daily-fund-prices']) }}">Daily Fund Prices</a></li>
                                         <li><a href="{{ route('pages.show', ['slug' => 'fund-managers-report']) }}">Fund Manager&rsquo;s Report</a></li>
@@ -79,16 +79,16 @@
                                 <li><a href="{{ route('pages.show', ['slug' => 'management-team']) }}">Management Team</a></li>
                                 <li><a href="{{ route('pages.show', ['slug' => 'corporate-information']) }}">Corporate Information</a></li>
                                 <li>
-                                    <a href="{{ asset('uploads/2026/2026/03/IFS-Rating-of-5th-Pillar-Family-Takaful-Limited.pdf') }}" target="_blank" rel="noopener noreferrer">PACRA Rating</a>
+                                    <a href="{{ \App\Support\PublicPath::uploadHref('uploads/2026/03/IFS-Rating-of-5th-Pillar-Family-Takaful-Limited.pdf') }}" target="_blank" rel="noopener noreferrer">PACRA Rating</a>
                                 </li>
                                 <li>
-                                    <a href="{{ asset('uploads/2023/2023/09/Code-of-Conduct-Corporate.pdf') }}" target="_blank" rel="noopener noreferrer">Code of Conduct</a>
+                                    <a href="{{ \App\Support\PublicPath::uploadHref('uploads/2023/09/Code-of-Conduct-Corporate.pdf') }}" target="_blank" rel="noopener noreferrer">Code of Conduct</a>
                                 </li>
                                 <li>
-                                    <a href="{{ asset('uploads/2026/2026/04/Waqf-Deed-with-addition-of-Amendment-2-4-26.pdf') }}" target="_blank" rel="noopener noreferrer">Waqf Deed</a>
+                                    <a href="{{ \App\Support\PublicPath::uploadHref('uploads/2026/04/Waqf-Deed-with-addition-of-Amendment-2-4-26.pdf') }}" target="_blank" rel="noopener noreferrer">Waqf Deed</a>
                                 </li>
                                 <li>
-                                    <a href="{{ asset('uploads/2023/2023/12/PTF-Policies.pdf') }}" target="_blank" rel="noopener noreferrer">PTF Policies</a>
+                                    <a href="{{ \App\Support\PublicPath::uploadHref('uploads/2023/12/PTF-Policies.pdf') }}" target="_blank" rel="noopener noreferrer">PTF Policies</a>
                                 </li>
                                 <li><a href="{{ route('pages.show', ['slug' => 'privacy-policy']) }}">Privacy Policy</a></li>
                             </ul>
@@ -113,7 +113,7 @@
                             <span class="laravel-sitemap__heading">Downloads</span>
                             <ul>
                                 <li>
-                                    <a href="{{ asset('uploads/2026/2026/04/Unclaimed-Un-Enchased-Benefits-lIst-March-2026.pdf') }}" target="_blank" rel="noopener noreferrer">List of Participants Having Unclaimed / Un-Enchased Benefits</a>
+                                    <a href="{{ \App\Support\PublicPath::uploadHref('uploads/2026/04/Unclaimed-Un-Enchased-Benefits-lIst-March-2026.pdf') }}" target="_blank" rel="noopener noreferrer">List of Participants Having Unclaimed / Un-Enchased Benefits</a>
                                 </li>
                                 <li><a href="{{ route('pages.show', ['slug' => 'forms']) }}">Forms</a></li>
                             </ul>

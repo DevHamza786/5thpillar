@@ -268,4 +268,3 @@
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="{{ asset('assets/js/pages/planner-hajj-umrah.js') }}?v={{ $__plannerJsVer }}" defer></script>
 @endpush
-@endpush

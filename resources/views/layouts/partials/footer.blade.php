@@ -14,9 +14,9 @@
                         <li><a href="{{ route('pages.show', ['slug' => 'knowledge-centre']) }}">{{ __('Knowledge Centre') }}</a></li>
                         <li><a href="{{ route('pages.show', ['slug' => 'online-complaint-form']) }}">{{ __('Complaint Form') }}</a></li>
                         <li><a href="{{ route('pages.show', ['slug' => 'careers']) }}">{{ __('Careers') }}</a></li>
-                        <li><a href="{{ asset('uploads/2026/2026/04/Active-agents.pdf') }}" target="_blank" rel="noopener noreferrer">{{ __('List of Authorized Agents') }}</a></li>
-                        <li><a href="{{ asset('uploads/2024/2024/01/How-to-Launch-Complaints-and-Grievances-amended-as-per-18-1-24-2.pdf') }}" target="_blank" rel="noopener noreferrer">{{ __('Grievance Handling Mechanism') }}</a></li>
-                        <li><a href="{{ asset('uploads/2024/2024/12/Compliance-Certificate-24-For-website.pdf') }}" target="_blank" rel="noopener noreferrer">{{ __('Compliance Certificate') }}</a></li>
+                        <li><a href="{{ \App\Support\PublicPath::uploadHref('uploads/2026/04/Active-agents.pdf') }}" target="_blank" rel="noopener noreferrer">{{ __('List of Authorized Agents') }}</a></li>
+                        <li><a href="{{ \App\Support\PublicPath::uploadHref('uploads/2024/2024/01/How-to-Launch-Complaints-and-Grievances-amended-as-per-18-1-24-2.pdf') }}" target="_blank" rel="noopener noreferrer">{{ __('Grievance Handling Mechanism') }}</a></li>
+                        <li><a href="{{ \App\Support\PublicPath::uploadHref('uploads/2024/2024/12/Compliance-Certificate-24-For-website.pdf') }}" target="_blank" rel="noopener noreferrer">{{ __('Compliance Certificate') }}</a></li>
                     </ul>
                 </div>
 

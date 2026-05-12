@@ -3,6 +3,7 @@
 namespace App\Services;
 
 use App\Models\NavMenuItem;
+use App\Support\PublicPath;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\Schema;
 
@@ -74,7 +75,7 @@ class SiteNavigationService
                     break;
                 case NavMenuItem::LINK_CUSTOM_URL:
                     if ($item->custom_url) {
-                        $node['url'] = $item->custom_url;
+                        $node['url'] = PublicPath::normalizeMenuCustomUrl($item->custom_url);
                     }
                     break;
                 case NavMenuItem::LINK_MEDIA:
@@ -126,10 +127,10 @@ class SiteNavigationService
                     ['label' => 'Vision & Mission', 'slug' => 'vision-mission'],
                     ['label' => 'Management Team', 'slug' => 'management-team'],
                     ['label' => 'Corporate Information', 'slug' => 'corporate-information'],
-                    ['label' => 'PACRA Rating', 'url' => asset('uploads/2026/2026/03/IFS-Rating-of-5th-Pillar-Family-Takaful-Limited.pdf'), 'external' => true],
-                    ['label' => 'Code of Conduct', 'url' => asset('uploads/2023/2023/09/Code-of-Conduct-Corporate.pdf'), 'external' => true],
-                    ['label' => 'Waqf Deed', 'url' => asset('uploads/2026/2026/04/Waqf-Deed-with-addition-of-Amendment-2-4-26.pdf'), 'external' => true],
-                    ['label' => 'PTF Policies', 'url' => asset('uploads/2023/2023/12/PTF-Policies.pdf'), 'external' => true],
+                    ['label' => 'PACRA Rating', 'url' => PublicPath::uploadHref('uploads/2026/03/IFS-Rating-of-5th-Pillar-Family-Takaful-Limited.pdf'), 'external' => true],
+                    ['label' => 'Code of Conduct', 'url' => PublicPath::uploadHref('uploads/2023/09/Code-of-Conduct-Corporate.pdf'), 'external' => true],
+                    ['label' => 'Waqf Deed', 'url' => PublicPath::uploadHref('uploads/2026/04/Waqf-Deed-with-addition-of-Amendment-2-4-26.pdf'), 'external' => true],
+                    ['label' => 'PTF Policies', 'url' => PublicPath::uploadHref('uploads/2023/12/PTF-Policies.pdf'), 'external' => true],
                     ['label' => 'Privacy Policy', 'slug' => 'privacy-policy'],
                 ],
             ],
@@ -163,9 +164,9 @@ class SiteNavigationService
                     [
                         'label' => 'Notices of General Meetings',
                         'children' => [
-                            ['label' => 'Notice of AGM 2026', 'url' => asset('uploads/2026/2026/04/Notice-of-AGM-2026.pdf'), 'external' => true],
-                            ['label' => 'Notice of EoGM 2025', 'url' => asset('uploads/2026/2026/04/Notice-of-EoGM-2025.pdf'), 'external' => true],
-                            ['label' => 'Notice of AGM 2025', 'url' => asset('uploads/2026/2026/04/Notice-of-AGM-2025.pdf'), 'external' => true],
+                            ['label' => 'Notice of AGM 2026', 'url' => PublicPath::uploadHref('uploads/2026/04/Notice-of-AGM-2026.pdf'), 'external' => true],
+                            ['label' => 'Notice of EoGM 2025', 'url' => PublicPath::uploadHref('uploads/2026/04/Notice-of-EoGM-2025.pdf'), 'external' => true],
+                            ['label' => 'Notice of AGM 2025', 'url' => PublicPath::uploadHref('uploads/2026/04/Notice-of-AGM-2025.pdf'), 'external' => true],
                         ],
                     ],
                     ['label' => 'Online Complaint Form', 'slug' => 'online-complaint-form'],
@@ -175,7 +176,7 @@ class SiteNavigationService
                     [
                         'label' => 'Takaful Unit-Linked Funds',
                         'children' => [
-                            ['label' => 'Target Asset Mix and Charges', 'url' => asset('uploads/2025/2025/01/web-page.pdf'), 'external' => true],
+                            ['label' => 'Target Asset Mix and Charges', 'url' => PublicPath::uploadHref('uploads/2025/2025/01/web-page.pdf'), 'external' => true],
                             ['label' => 'Daily Fund Prices', 'slug' => 'daily-fund-prices'],
                             ['label' => "Fund Manager's Report", 'slug' => 'fund-managers-report'],
                             ['label' => 'Accounts of Unit Linked Funds', 'slug' => 'accounts-of-unit-linked-funds'],
@@ -198,7 +199,7 @@ class SiteNavigationService
             [
                 'label' => __('Downloads'),
                 'children' => [
-                    ['label' => 'List of Participants Having Unclaimed / Un-Enchased Benefits', 'url' => asset('uploads/2026/2026/04/Unclaimed-Un-Enchased-Benefits-lIst-March-2026.pdf'), 'external' => true],
+                    ['label' => 'List of Participants Having Unclaimed / Un-Enchased Benefits', 'url' => PublicPath::uploadHref('uploads/2026/04/Unclaimed-Un-Enchased-Benefits-lIst-March-2026.pdf'), 'external' => true],
                     ['label' => 'Forms', 'slug' => 'forms'],
                 ],
             ],

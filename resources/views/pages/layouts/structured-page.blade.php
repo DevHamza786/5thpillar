@@ -23,7 +23,16 @@
 
 
 @section('title', str_replace('&amp;', '&', $__cmsMetaTitle))
-@section('body_class', trim($__env->yieldContent('structured_body_class', 'wp-singular page-template-default page custom-background wp-custom-logo wp-theme-shaha wp-child-theme-shaha-child body_tag scheme_default blog_mode_page body_style_wide is_single sidebar_hide expand_content remove_margins header_type_custom header_position_default header_mobile_disabled menu_style_ no_layout laravel-inner-page laravel-college-theme')))
+@php
+    $__structuredBodyClassRaw = trim((string) $__env->yieldContent('structured_body_class', 'wp-singular page-template-default page custom-background wp-custom-logo wp-theme-shaha wp-child-theme-shaha-child body_tag scheme_default blog_mode_page body_style_wide is_single sidebar_hide expand_content remove_margins header_type_custom header_position_default header_mobile_disabled menu_style_ no_layout laravel-inner-page laravel-college-theme'));
+    $__structuredBodyDefault = 'wp-singular page-template-default page custom-background wp-custom-logo wp-theme-shaha wp-child-theme-shaha-child body_tag scheme_default blog_mode_page body_style_wide is_single sidebar_hide expand_content remove_margins header_type_custom header_position_default header_mobile_disabled menu_style_ no_layout laravel-inner-page laravel-college-theme';
+    if ($__structuredBodyClassRaw === $__structuredBodyDefault || str_contains($__structuredBodyClassRaw, 'laravel-inner-page')) {
+        $__structuredBodyClassOut = $__structuredBodyClassRaw;
+    } else {
+        $__structuredBodyClassOut = trim($__structuredBodyDefault.' '.$__structuredBodyClassRaw);
+    }
+@endphp
+@section('body_class', $__structuredBodyClassOut)
 @section('page_title', str_replace('&amp;', '&', $__cmsPageTitle !== '' ? $__cmsPageTitle : $__cmsMetaTitle))
 
 @section('header_masthead')

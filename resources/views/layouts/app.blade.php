@@ -5,10 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <meta name="format-detection" content="telephone=no">
     <title>@yield('title', '5th Pillar Family Takaful')</title>
-    <link rel="icon" href="{{ asset('uploads/2023/2023/05/cropped-5th-Pilar-Logo-32x32.png') }}" sizes="32x32" type="image/png">
-    <link rel="icon" href="{{ asset('uploads/2023/2023/05/cropped-5th-Pilar-Logo-192x192.png') }}" sizes="192x192" type="image/png">
-    <link rel="apple-touch-icon" href="{{ asset('uploads/2023/2023/05/cropped-5th-Pilar-Logo-180x180.png') }}">
-    <meta name="msapplication-TileImage" content="{{ asset('uploads/2023/2023/05/cropped-5th-Pilar-Logo-270x270.png') }}">
+    <link rel="icon" href="{{ asset('uploads/2023/05/cropped-5th-Pilar-Logo-32x32.png') }}" sizes="32x32" type="image/png">
+    <link rel="icon" href="{{ asset('uploads/2023/05/cropped-5th-Pilar-Logo-192x192.png') }}" sizes="192x192" type="image/png">
+    <link rel="apple-touch-icon" href="{{ asset('uploads/2023/05/cropped-5th-Pilar-Logo-180x180.png') }}">
+    <meta name="msapplication-TileImage" content="{{ asset('uploads/2023/05/cropped-5th-Pilar-Logo-270x270.png') }}">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Noto+Sans+Urdu:wght@100..900&display=swap">
