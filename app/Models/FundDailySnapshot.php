@@ -15,6 +15,8 @@ class FundDailySnapshot extends Model
         'bal_offer',
         'con_bid',
         'con_offer',
+        'brk_bid',
+        'brk_offer',
     ];
 
     protected function casts(): array
@@ -27,17 +29,11 @@ class FundDailySnapshot extends Model
     protected static function booted(): void
     {
         static::saved(function (FundDailySnapshot $snapshot): void {
-            $sync = app(FundDailySnapshotArchiveSync::class);
-
-            if ($snapshot->wasChanged('price_date') && $snapshot->getOriginal('price_date')) {
-                $sync->removeForDate($snapshot->getOriginal('price_date'));
-            }
-
-            $sync->sync($snapshot);
-        });
-
-        static::deleted(function (FundDailySnapshot $snapshot): void {
-            app(FundDailySnapshotArchiveSync::class)->removeForSnapshot($snapshot);
+            // The archive is a permanent historical log. Only ever update the
+            // row that matches this snapshot's current date, or create a new one.
+            // Changing a snapshot's date must NOT remove the previous date's
+            // archive row — that entry stays as history.
+            app(FundDailySnapshotArchiveSync::class)->sync($snapshot);
         });
     }
 }

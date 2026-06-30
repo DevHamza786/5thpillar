@@ -55,6 +55,8 @@ final class FundPriceArchiveRepository
                     'bal_offer' => $data['bal_offer'] ?? '',
                     'con_bid' => $data['con_bid'] ?? '',
                     'con_offer' => $data['con_offer'] ?? '',
+                    'brk_bid' => $data['brk_bid'] ?? '',
+                    'brk_offer' => $data['brk_offer'] ?? '',
                 ];
             })->sortBy(fn (array $row) => self::archiveRowSortKey($row['date']))->values()->all())
             ->all();

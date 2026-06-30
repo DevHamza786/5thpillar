@@ -177,6 +177,8 @@ return [
                 ['key' => 'bal_offer', 'label' => 'Balanced offer', 'type' => 'string'],
                 ['key' => 'con_bid', 'label' => 'Conservative bid', 'type' => 'string'],
                 ['key' => 'con_offer', 'label' => 'Conservative offer', 'type' => 'string'],
+                ['key' => 'brk_bid', 'label' => 'Barkat bid', 'type' => 'string'],
+                ['key' => 'brk_offer', 'label' => 'Barkat offer', 'type' => 'string'],
             ],
         ],
     ],

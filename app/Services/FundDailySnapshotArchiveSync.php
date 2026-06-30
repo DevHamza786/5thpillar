@@ -73,6 +73,8 @@ class FundDailySnapshotArchiveSync
             'bal_offer' => (string) ($snapshot->bal_offer ?? ''),
             'con_bid' => (string) ($snapshot->con_bid ?? ''),
             'con_offer' => (string) ($snapshot->con_offer ?? ''),
+            'brk_bid' => (string) ($snapshot->brk_bid ?? ''),
+            'brk_offer' => (string) ($snapshot->brk_offer ?? ''),
         ]);
     }
 

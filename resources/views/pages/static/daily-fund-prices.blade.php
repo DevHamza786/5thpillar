@@ -18,6 +18,8 @@
                 'bal_offer' => $cmsSnapshot->bal_offer,
                 'con_bid' => $cmsSnapshot->con_bid,
                 'con_offer' => $cmsSnapshot->con_offer,
+                'brk_bid' => $cmsSnapshot->brk_bid,
+                'brk_offer' => $cmsSnapshot->brk_offer,
             ];
         }
         if ($latestRow === null) {

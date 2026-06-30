@@ -82,6 +82,8 @@ class FundDailySnapshotController extends Controller
             'bal_offer' => ['nullable', 'string', 'max:64'],
             'con_bid' => ['nullable', 'string', 'max:64'],
             'con_offer' => ['nullable', 'string', 'max:64'],
+            'brk_bid' => ['nullable', 'string', 'max:64'],
+            'brk_offer' => ['nullable', 'string', 'max:64'],
         ]);
     }
 }

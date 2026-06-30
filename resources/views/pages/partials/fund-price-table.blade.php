@@ -12,21 +12,26 @@
                     <th scope="colgroup" colspan="2" class="laravel-fund-price-table__fund">5th Pillar Aggressive Fund</th>
                     <th scope="colgroup" colspan="2" class="laravel-fund-price-table__fund">5th Pillar Balanced Fund</th>
                     <th scope="colgroup" colspan="2" class="laravel-fund-price-table__fund">5th Pillar Conservative Fund</th>
+                    <th scope="colgroup" colspan="2" class="laravel-fund-price-table__fund">5th Pillar Barkat Fund</th>
                 </tr>
                 <tr>
                     <th scope="col" class="laravel-fund-price-table__col1">Category</th>
                     <th scope="colgroup" colspan="2" class="laravel-fund-price-table__sub">Aggressive</th>
                     <th scope="colgroup" colspan="2" class="laravel-fund-price-table__sub">Balanced</th>
                     <th scope="colgroup" colspan="2" class="laravel-fund-price-table__sub">Conservative</th>
+                    <th scope="colgroup" colspan="2" class="laravel-fund-price-table__sub">Barkat</th>
                 </tr>
                 <tr>
                     <th scope="col" class="laravel-fund-price-table__col1">Risk Profile</th>
                     <th scope="colgroup" colspan="2" class="laravel-fund-price-table__sub">High Risk</th>
                     <th scope="colgroup" colspan="2" class="laravel-fund-price-table__sub">Medium Risk</th>
                     <th scope="colgroup" colspan="2" class="laravel-fund-price-table__sub">Low Risk</th>
+                    <th scope="colgroup" colspan="2" class="laravel-fund-price-table__sub">Low Risk</th>
                 </tr>
                 <tr>
                     <th scope="col" class="laravel-fund-price-table__col1">Day &amp; Date</th>
+                    <th scope="col" class="laravel-fund-price-table__bidoffer">Bid Prices</th>
+                    <th scope="col" class="laravel-fund-price-table__bidoffer">Offer Prices</th>
                     <th scope="col" class="laravel-fund-price-table__bidoffer">Bid Prices</th>
                     <th scope="col" class="laravel-fund-price-table__bidoffer">Offer Prices</th>
                     <th scope="col" class="laravel-fund-price-table__bidoffer">Bid Prices</th>
@@ -45,6 +50,8 @@
                         <td>{{ $r['bal_offer'] }}</td>
                         <td>{{ $r['con_bid'] }}</td>
                         <td>{{ $r['con_offer'] }}</td>
+                        <td>{{ $r['brk_bid'] ?? '' }}</td>
+                        <td>{{ $r['brk_offer'] ?? '' }}</td>
                     </tr>
                 @endforeach
             </tbody>

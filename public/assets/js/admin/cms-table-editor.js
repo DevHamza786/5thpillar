@@ -43,6 +43,32 @@
         reindexRows();
     }
 
+    function duplicateRow(sourceRow) {
+        var html = template.innerHTML.replace(/__INDEX__/g, '0');
+        var wrapper = document.createElement('tbody');
+        wrapper.innerHTML = html.trim();
+        var newRow = wrapper.firstElementChild;
+
+        // Copy each column value from the source row into the new (id-less) row.
+        var sourceInputs = sourceRow.querySelectorAll('input[name*="[data]"]');
+        var newInputs = newRow.querySelectorAll('input[name*="[data]"]');
+        sourceInputs.forEach(function (input, i) {
+            if (newInputs[i]) {
+                newInputs[i].value = input.value;
+            }
+        });
+
+        // Mirror the enabled checkbox state.
+        var sourceCheck = sourceRow.querySelector('input[type="checkbox"]');
+        var newCheck = newRow.querySelector('input[type="checkbox"]');
+        if (sourceCheck && newCheck) {
+            newCheck.checked = sourceCheck.checked;
+        }
+
+        sourceRow.after(newRow);
+        reindexRows();
+    }
+
     if (addBtn) {
         addBtn.addEventListener('click', function () {
             addRow();
@@ -53,6 +79,11 @@
         if (event.target.matches('[data-row-remove]')) {
             event.target.closest('[data-row]').remove();
             reindexRows();
+            return;
+        }
+
+        if (event.target.matches('[data-row-duplicate]')) {
+            duplicateRow(event.target.closest('[data-row]'));
         }
     });
 

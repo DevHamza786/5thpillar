@@ -84,7 +84,8 @@
                                         <input type="hidden" name="rows[{{ $index }}][is_enabled]" value="0">
                                         <input type="checkbox" name="rows[{{ $index }}][is_enabled]" value="1" @checked($row->is_enabled)>
                                     </td>
-                                    <td>
+                                    <td class="cms-spreadsheet__actions">
+                                        <button type="button" class="button button-small" data-row-duplicate>{{ __('Duplicate') }}</button>
                                         <button type="button" class="button button-small button-link-delete" data-row-remove>{{ __('Remove') }}</button>
                                     </td>
                                 </tr>
@@ -116,7 +117,8 @@
                 <input type="hidden" name="rows[__INDEX__][is_enabled]" value="0">
                 <input type="checkbox" name="rows[__INDEX__][is_enabled]" value="1" checked>
             </td>
-            <td>
+            <td class="cms-spreadsheet__actions">
+                <button type="button" class="button button-small" data-row-duplicate>{{ __('Duplicate') }}</button>
                 <button type="button" class="button button-small button-link-delete" data-row-remove>{{ __('Remove') }}</button>
             </td>
         </tr>

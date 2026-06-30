@@ -54,6 +54,18 @@
                     </div>
                 </div>
 
+                <h3 class="postbox-header admin-fund-header">{{ __('5th Pillar Barkat Fund') }}</h3>
+                <div class="row cols-2">
+                    <div>
+                        <label for="brk_bid">{{ __('Bid (PKR)') }}</label>
+                        <input id="brk_bid" type="text" name="brk_bid" value="{{ old('brk_bid') }}">
+                    </div>
+                    <div>
+                        <label for="brk_offer">{{ __('Offer (PKR)') }}</label>
+                        <input id="brk_offer" type="text" name="brk_offer" value="{{ old('brk_offer') }}">
+                    </div>
+                </div>
+
                 <p class="submit admin-submit-row admin-submit-row--12">
                     <button type="submit" class="button button-primary">{{ __('Save') }}</button>
                     <a href="{{ route('admin.fund-snapshots.index') }}" class="button admin-cancel-btn">{{ __('Cancel') }}</a>
