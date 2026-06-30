@@ -1,0 +1,35 @@
+<IfModule mod_rewrite.c>
+    <IfModule mod_negotiation.c>
+        Options -MultiViews -Indexes
+    </IfModule>
+
+    RewriteEngine On
+
+    DirectoryIndex index.php
+
+    # Open site PDFs in branded viewer (browser tab favicon). ?embed=1 serves raw file for iframe.
+    RewriteCond %{REQUEST_URI} ^/assets/pdf/.+\.pdf$ [NC]
+    RewriteCond %{QUERY_STRING} !(^|&)embed=1(&|$) [NC]
+    RewriteRule ^ pdf-viewer%{REQUEST_URI} [R=302,L]
+
+    # Handle Authorization Header
+    RewriteCond %{HTTP:Authorization} .
+    RewriteRule .* - [E=HTTP_AUTHORIZATION:%{HTTP:Authorization}]
+
+    # Handle X-XSRF-Token Header
+    RewriteCond %{HTTP:x-xsrf-token} .
+    RewriteRule .* - [E=HTTP_X_XSRF_TOKEN:%{HTTP:X-XSRF-Token}]
+
+    # Homepage (when document root is public/ or rewritten to this folder as a directory).
+    RewriteRule ^$ index.php [L]
+
+    # Redirect Trailing Slashes If Not A Folder...
+    RewriteCond %{REQUEST_FILENAME} !-d
+    RewriteCond %{REQUEST_URI} (.+)/$
+    RewriteRule ^ %1 [L,R=301]
+
+    # Send Requests To Front Controller...
+    RewriteCond %{REQUEST_FILENAME} !-d
+    RewriteCond %{REQUEST_FILENAME} !-f
+    RewriteRule ^ index.php [L]
+</IfModule>

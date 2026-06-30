@@ -1,0 +1,7 @@
+/*
+ * Legacy WordPress Use Any Font mapping. Raleway is loaded from Google Fonts
+ * in layouts/app.blade.php — avoid broken /wp-content/ paths on Laravel.
+ */
+.raleway {
+    font-family: "Raleway", sans-serif !important;
+}

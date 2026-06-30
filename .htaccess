@@ -1,0 +1,15 @@
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+
+    # Existing files in project root (e.g. index.php) are served as-is.
+    RewriteCond %{REQUEST_FILENAME} -f
+    RewriteRule ^ - [L]
+
+    # Existing directories under public/ (assets, etc.).
+    RewriteCond %{DOCUMENT_ROOT}/public/$1 -f [OR]
+    RewriteCond %{DOCUMENT_ROOT}/public/$1 -d
+    RewriteRule ^(.*)$ public/$1 [L]
+
+    # Everything else → Laravel front controller.
+    RewriteRule ^ public/index.php [L]
+</IfModule>

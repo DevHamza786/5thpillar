@@ -1,0 +1,171 @@
+/*
+Theme Name:     Shaha Child
+Theme URI:      http://shaha.ancorathemes.com/
+Description:    Make your modifications to Shaha in this child theme.
+Author:         AncoraThemes
+Author URI:     http://ancorathemes.com
+Version:        1.0
+Template:       shaha
+*/
+
+/* .slider {
+    -webkit-appearance: none;
+    width: 100%;
+    height: 10px;
+    border-radius: 5px;
+    background: #d3d3d3;
+    outline: none;
+    opacity: 0.7;
+    transition: opacity .2s;
+  }
+
+  .slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: #b4a55c;
+    cursor: pointer;
+  }
+  
+  .slider::-moz-range-thumb {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: #04AA6D;
+    cursor: pointer;
+  }
+
+  label.range-label {
+    display: flex;
+    justify-content: space-between;
+    font-size: 16px;
+}
+
+.range-value {
+    background: #dededeaa;
+    padding: 5px 15px;
+    border: 1px solid #d8d5d5;
+    color: #000;
+    border-radius: 2px;
+}
+
+.range-labels {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10px;
+}
+
+.hajj-plan-summary {
+    background: #f9f9f9;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+    width: 100%;
+}
+
+.hajj-plan-summary-h2 {
+    color: #b39246;
+    margin-bottom: 15px;
+}
+
+.summary-item {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+    font-size: 16px;
+    color: #333;
+}
+
+.summary-item span:last-child {
+    font-weight: bold;
+}
+
+input[type="range"] {
+    width: 100%;
+    margin: 20px 0;
+}
+
+
+.wpcf7-mail-sent-ok {
+    color: #155724;
+    background-color: #d4edda;
+    border: 1px solid #c3e6cb;
+    padding: 10px;
+    border-radius: 5px;
+    margin-bottom: 15px;
+}
+
+.wpcf7-validation-errors {
+    color: #721c24;
+    background-color: #f8d7da;
+    border: 1px solid #f5c6cb;
+    padding: 10px;
+    border-radius: 5px;
+    margin-bottom: 15px;
+}
+
+canvas#hajjChart {
+    padding: 20px;
+    margin-bottom: 20px;
+    margin-right: 17px;
+    border: 1px solid #00000021;
+    border-radius: 5px;
+}
+
+canvas#hajjPieChart {
+    padding: 20px;
+    border: 1px solid #00000029;
+    border-radius: 8px;
+}
+
+.chart-div {
+    display: flex;
+    width: 100%;
+}
+
+.col-lg-6.hajjChart {
+    background: #f9f9f9;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    margin-right: 15px;
+    height: 550px;
+}
+
+.col-lg-6.hajjPieChart {
+    background: #f9f9f9;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    height: 550px;
+}
+
+.chart-div h2 {
+    font-size: 28px;
+    margin: 0px;
+    color: #000 !important;
+    border-collapse: separate;
+    border-bottom: 1px solid #000;
+    padding-bottom: 10px;
+}
+
+.hajjChart h4 {
+    margin: 10px 15px;
+    font-size: 16px;
+    display: inline-block;
+}
+
+.hajjChart h3 {
+    margin: 15px 0px;
+}
+
+a.btn.btn-primary {
+    background: #b4a55c;
+    color: #fff;
+    padding: 10px;
+    border-radius: 5px;
+}
+ */

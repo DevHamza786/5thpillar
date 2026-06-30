@@ -1,0 +1,15 @@
+/* Hajj Savings Plan — bank partner row alignment */
+
+.laravel-hajj-bank-partner--align-left {
+    text-align: left;
+}
+
+.laravel-hajj-bank-partner--align-left .laravel-hajj-bank-partner__logo {
+    display: inline-block;
+    margin-left: 0;
+    margin-right: auto;
+}
+
+.laravel-hajj-bank-partner--align-left .laravel-hajj-bank-partner__logo img {
+    display: block;
+}

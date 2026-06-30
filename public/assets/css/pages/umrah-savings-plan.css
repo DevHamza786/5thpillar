@@ -1,0 +1,48 @@
+/* Umrah Savings Plan — typography + bank partner (was inline in Blade) */
+
+.laravel-hajj-bank-partner--align-left {
+    text-align: left;
+}
+
+.laravel-hajj-bank-partner--align-left .laravel-hajj-bank-partner__logo {
+    display: inline-block;
+    margin-left: 0;
+    margin-right: auto;
+}
+
+.laravel-hajj-bank-partner--align-left .laravel-hajj-bank-partner__logo img {
+    display: block;
+}
+
+.laravel-umrah-savings-page .post_content.entry-content {
+    font-family: 'Raleway', sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    text-align: left;
+}
+
+.laravel-umrah-savings-page .laravel-hajj-section-title {
+    font-family: 'Raleway', sans-serif;
+    font-size: 38px !important;
+    font-weight: 700 !important;
+}
+
+.laravel-umrah-savings-page .post_content.entry-content p,
+.laravel-umrah-savings-page .post_content.entry-content .laravel-hajj-lead,
+.laravel-umrah-savings-page .laravel-product-feature-list,
+.laravel-umrah-savings-page .laravel-product-feature-list li {
+    color: #000000;
+    font-size: 1.125rem;
+    line-height: 1.65;
+}
+
+.laravel-umrah-savings-page .laravel-hajj-av__caption,
+.laravel-umrah-savings-page .laravel-hajj-av__caption a {
+    color: #000000;
+    font-size: 1.05rem;
+}
+
+html[lang="ur"] .laravel-umrah-savings-page .laravel-hajj-section-title,
+html[lang="ur"] .laravel-umrah-savings-page .post_content.entry-content {
+    font-family: 'Noto Sans Urdu', sans-serif;
+}
