@@ -70,24 +70,21 @@ body.laravel-college-theme.laravel-inner-page .laravel-digital-savings-page .ds-
 }
 
 .laravel-digital-savings-page .laravel-app-download {
-    border-radius: 11px;
-    box-shadow: 0 6px 16px rgba(180, 165, 92, 0.26);
     display: inline-block;
     line-height: 0;
     max-width: 100%;
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
-    width: 190px;
+    transition: transform 0.2s ease;
 }
 
 .laravel-digital-savings-page .laravel-app-download img {
     display: block;
-    height: auto;
-    width: 100%;
+    height: 54px;
+    max-width: 100%;
+    width: auto;
 }
 
 .laravel-digital-savings-page .laravel-app-download:hover,
 .laravel-digital-savings-page .laravel-app-download:focus-visible {
-    box-shadow: 0 12px 24px rgba(180, 165, 92, 0.4);
     transform: translateY(-2px);
 }
 

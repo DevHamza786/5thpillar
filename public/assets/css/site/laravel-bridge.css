@@ -1564,13 +1564,14 @@ body.header_position_over .top_panel {
     display: inline-block;
     line-height: 0;
     transition: opacity 0.2s ease, transform 0.2s ease;
-    width: 180px;
     max-width: 100%;
 }
 
 .laravel-footer-appstore img {
-    width: 100%;
-    height: auto;
+    display: block;
+    width: auto;
+    height: 50px;
+    max-width: 100%;
 }
 
 .laravel-footer-appstore:hover,

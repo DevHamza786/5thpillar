@@ -12,9 +12,9 @@
 
 <div class="laravel-app-downloads{{ $variantClass }}">
     <a class="laravel-app-download" href="{{ $googlePlayUrl }}" target="_blank" rel="noopener noreferrer" aria-label="{{ __('Download on Google Play') }}">
-        <img src="{{ asset('assets/images/footer/google-play-badge.svg') }}" alt="{{ __('Download on Google Play') }}" width="180" height="53" loading="lazy" decoding="async">
+        <img src="{{ asset('assets/images/footer/Google.png') }}" alt="{{ __('Download on Google Play') }}" width="187" height="54" loading="lazy" decoding="async">
     </a>
     <a class="laravel-app-download" href="{{ $appStoreUrl }}" target="_blank" rel="noopener noreferrer" aria-label="{{ __('Download on the App Store') }}">
-        <img src="{{ asset('assets/images/footer/app-store-badge.svg') }}" alt="{{ __('Download on the App Store') }}" width="180" height="53" loading="lazy" decoding="async">
+        <img src="{{ asset('assets/images/footer/App.png') }}" alt="{{ __('Download on the App Store') }}" width="163" height="54" loading="lazy" decoding="async">
     </a>
 </div>

@@ -83,10 +83,10 @@
 
                     <div class="laravel-footer-appstores">
                         <a class="laravel-footer-appstore" href="https://play.google.com/store/apps/details?id=com.fifthpillartakaful.niyyat&hl=en" target="_blank" rel="noopener noreferrer" aria-label="{{ __('Get it on Google Play') }}">
-                            <img src="{{ asset('assets/images/footer/google-play-badge.svg') }}" alt="{{ __('Get it on Google Play') }}" width="180" height="53">
+                            <img src="{{ asset('assets/images/footer/Google.png') }}" alt="{{ __('Get it on Google Play') }}" width="187" height="54">
                         </a>
                         <a class="laravel-footer-appstore" href="https://apps.apple.com/in/app/5th-pillar-niyyat/id6596748529" target="_blank" rel="noopener noreferrer" aria-label="{{ __('Download on the App Store') }}">
-                            <img src="{{ asset('assets/images/footer/app-store-badge.svg') }}" alt="{{ __('Download on the App Store') }}" width="180" height="53">
+                            <img src="{{ asset('assets/images/footer/App.png') }}" alt="{{ __('Download on the App Store') }}" width="163" height="54">
                         </a>
                     </div>
                 </div>
