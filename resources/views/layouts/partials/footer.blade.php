@@ -80,6 +80,15 @@
                             <a class="footer-youtube" href="https://www.youtube.com/@5thPillarFamilyTakafulLimited" target="_blank" rel="noopener noreferrer">{{ __('YouTube') }}</a>
                         </p>
                     </div>
+
+                    <div class="laravel-footer-appstores">
+                        <a class="laravel-footer-appstore" href="https://play.google.com/store/apps/details?id=com.fifthpillartakaful.niyyat&hl=en" target="_blank" rel="noopener noreferrer" aria-label="{{ __('Get it on Google Play') }}">
+                            <img src="{{ asset('assets/images/footer/google-play-badge.svg') }}" alt="{{ __('Get it on Google Play') }}" width="180" height="53">
+                        </a>
+                        <a class="laravel-footer-appstore" href="https://apps.apple.com/in/app/5th-pillar-niyyat/id6596748529" target="_blank" rel="noopener noreferrer" aria-label="{{ __('Download on the App Store') }}">
+                            <img src="{{ asset('assets/images/footer/app-store-badge.svg') }}" alt="{{ __('Download on the App Store') }}" width="180" height="53">
+                        </a>
+                    </div>
                 </div>
 
                 <div class="footer-widget widget widget_text">
