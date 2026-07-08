@@ -49,7 +49,7 @@
                     </tr>
                     <tr>
                         <th scope="row">5th Pillar Barkat Fund</th>
-                        <td>Barkat</td>
+                        <td>Money Market</td>
                         <td>Low Risk</td>
                         <td>{{ $row['brk_bid'] ?? '' }}</td>
                         <td>{{ $row['brk_offer'] ?? '' }}</td>
