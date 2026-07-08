@@ -94,6 +94,12 @@ return [
         // Temporary: send all /urdu/* public pages to the live WordPress site.
         'redirect_to_live' => env('URDU_REDIRECT_TO_LIVE', false),
         'live_base_url' => rtrim((string) env('URDU_LIVE_BASE_URL', 'https://5thpillartakaful.com'), '/'),
+        // Slugs that must render from Laravel (Urdu) even while redirect_to_live
+        // is on — i.e. new pages that do not exist on the WordPress site.
+        'redirect_to_live_except' => array_values(array_filter(array_map(
+            'trim',
+            explode(',', (string) env('URDU_REDIRECT_TO_LIVE_EXCEPT', 'digital-savings'))
+        ))),
         'urdu_route_slugs' => [
             'hajj-planner' => 'hajj-planner',
             'umrah-planner' => 'umrah-planner',

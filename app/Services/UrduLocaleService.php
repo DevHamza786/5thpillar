@@ -108,6 +108,17 @@ class UrduLocaleService
         return (bool) ($this->localeConfig()['redirect_to_live'] ?? false);
     }
 
+    /**
+     * Slugs that should keep rendering from Laravel (Urdu) even when
+     * redirect_to_live is enabled.
+     *
+     * @return array<int, string>
+     */
+    public function liveRedirectExceptions(): array
+    {
+        return array_values((array) ($this->localeConfig()['redirect_to_live_except'] ?? []));
+    }
+
     public function liveBaseUrl(): string
     {
         $base = rtrim((string) ($this->localeConfig()['live_base_url'] ?? 'https://5thpillartakaful.com'), '/');

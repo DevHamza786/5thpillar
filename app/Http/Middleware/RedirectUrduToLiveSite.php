@@ -33,6 +33,12 @@ class RedirectUrduToLiveSite
             ? ''
             : ltrim((string) substr($path, strlen($prefix)), '/');
 
+        // New Laravel-only pages (not present on WordPress) stay in Laravel.
+        $firstSegment = $suffix === '' ? '' : (explode('/', $suffix)[0] ?? '');
+        if ($firstSegment !== '' && in_array($firstSegment, $this->urdu->liveRedirectExceptions(), true)) {
+            return $next($request);
+        }
+
         $target = $this->urdu->liveUrduUrl($suffix);
 
         $query = $request->getQueryString();

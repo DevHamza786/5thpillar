@@ -1,6 +1,5 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 190 56" role="img" aria-label="Get it on Google Play">
-  <rect x="1" y="1" width="188" height="54" rx="10" fill="#a68945"/>
-  <rect x="1.5" y="1.5" width="187" height="53" rx="9.5" fill="none" stroke="#ffffff" stroke-opacity="0.35"/>
+  <rect x="1" y="1" width="188" height="54" rx="10" fill="#b4a55c"/>
   <g transform="translate(18,15)">
     <path d="M0 1.5 L14 14 L0 26.5 Z" fill="#ffffff"/>
     <path d="M0 14 H14" stroke="#a68945" stroke-width="1.1"/>

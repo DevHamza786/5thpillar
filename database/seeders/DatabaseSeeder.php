@@ -29,5 +29,6 @@ class DatabaseSeeder extends Seeder
         );
 
         $this->call(NavMenuSeeder::class);
+        $this->call(DigitalSavingsPageSeeder::class);
     }
 }
