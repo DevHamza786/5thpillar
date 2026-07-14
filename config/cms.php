@@ -77,6 +77,12 @@ return [
             'view' => 'pdf-table',
             'roles' => ['primary', 'append'],
         ],
+        'forms_catalog' => [
+            'label' => 'Forms catalog',
+            'description' => 'Two-column Forms page lists with PDF download links (Group + Individual / Banca).',
+            'view' => 'forms-catalog',
+            'roles' => ['primary'],
+        ],
         'home_popup' => [
             'label' => 'Home popup banner',
             'description' => 'Modal popup image on the homepage.',

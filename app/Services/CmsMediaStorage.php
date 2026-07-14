@@ -37,6 +37,26 @@ class CmsMediaStorage
 
     public function replaceLibraryFile(CmsMedia $media, UploadedFile $file): void
     {
+        // Keep the same public path so CMS section links keep working.
+        if ($media->disk === CmsMedia::DISK_ASSETS && filled($media->path)) {
+            $absolute = public_path(ltrim((string) $media->path, '/'));
+            $fileSize = (int) ($file->getSize() ?: 0);
+
+            File::ensureDirectoryExists(dirname($absolute));
+            if (is_file($absolute)) {
+                File::delete($absolute);
+            }
+            $file->move(dirname($absolute), basename($absolute));
+
+            $media->fill([
+                'original_name' => $file->getClientOriginalName(),
+                'mime' => $file->getClientMimeType(),
+                'file_size' => $fileSize,
+            ]);
+
+            return;
+        }
+
         $this->deletePhysicalFile($media);
 
         $folder = $media->folder ?: 'images';

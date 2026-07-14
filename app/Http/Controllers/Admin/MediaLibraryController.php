@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Models\CmsMedia;
 use App\Services\CmsMediaStorage;
+use App\Services\CmsPdfUsageService;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
@@ -17,7 +18,7 @@ class MediaLibraryController extends Controller
         private readonly CmsMediaStorage $storage
     ) {}
 
-    public function index(Request $request): View
+    public function index(Request $request, CmsPdfUsageService $pdfUsage): View
     {
         $type = $request->query('type', 'all');
         $folder = $request->query('folder', '');
@@ -35,6 +36,9 @@ class MediaLibraryController extends Controller
         }
 
         $media = $query->paginate(36)->withQueryString();
+        $pdfUsageByPath = $pdfUsage->usageByPath(
+            $media->getCollection()->filter(fn (CmsMedia $item) => $item->isPdf())
+        );
 
         return view('admin.media.index', [
             'media' => $media,
@@ -42,6 +46,7 @@ class MediaLibraryController extends Controller
             'folder' => $folder,
             'imageFolders' => config('cms.media.image_folders', []),
             'pdfFolders' => config('cms.media.pdf_folders', []),
+            'pdfUsageByPath' => $pdfUsageByPath,
         ]);
     }
 

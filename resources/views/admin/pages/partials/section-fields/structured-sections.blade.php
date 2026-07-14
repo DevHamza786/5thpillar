@@ -3,10 +3,20 @@
     $suffix = $isEn ? '' : '_ur';
     $dir = $isEn ? '' : 'dir="rtl"';
     $galleryImages = old('content.images', $content['images'] ?? []);
-    $tableColumns = old('content.columns', $content['columns'] ?? ['Column 1', 'Column 2']);
-    $tableRows = old('content.rows', $content['rows'] ?? []);
+    // Only treat columns as table headers when this is a table section (forms_catalog also uses "columns").
+    $rawTableColumns = $currentType === 'table'
+        ? old('content.columns', $content['columns'] ?? ['Column 1', 'Column 2'])
+        : ['Column 1', 'Column 2'];
+    $tableColumns = is_array($rawTableColumns)
+        ? array_values(array_filter($rawTableColumns, static fn ($col) => is_string($col) || is_numeric($col)))
+        : [];
+    if ($tableColumns === []) {
+        $tableColumns = ['Column 1', 'Column 2'];
+    }
+    $tableRows = $currentType === 'table'
+        ? old('content.rows', $content['rows'] ?? [])
+        : [];
     if (! is_array($galleryImages)) { $galleryImages = []; }
-    if (! is_array($tableColumns)) { $tableColumns = []; }
     if (! is_array($tableRows)) { $tableRows = []; }
 @endphp
 

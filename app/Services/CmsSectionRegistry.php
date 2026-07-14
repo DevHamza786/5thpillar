@@ -88,6 +88,43 @@ class CmsSectionRegistry
                 'download_label_ur' => '',
                 'rows' => [],
             ],
+            'forms_catalog' => [
+                'columns' => [
+                    [
+                        'title' => 'Group Family Takaful',
+                        'title_ur' => '',
+                        'groups' => [
+                            [
+                                'heading' => 'Claim Forms:',
+                                'heading_ur' => '',
+                                'style' => 'plain',
+                                'open' => true,
+                                'items' => [],
+                            ],
+                        ],
+                    ],
+                    [
+                        'title' => 'Individual / Banca Takaful',
+                        'title_ur' => '',
+                        'groups' => [
+                            [
+                                'heading' => 'Participant Services',
+                                'heading_ur' => '',
+                                'style' => 'accordion',
+                                'open' => true,
+                                'items' => [],
+                            ],
+                            [
+                                'heading' => 'Claim Forms',
+                                'heading_ur' => '',
+                                'style' => 'accordion',
+                                'open' => true,
+                                'items' => [],
+                            ],
+                        ],
+                    ],
+                ],
+            ],
             'html' => [
                 'html' => '',
                 'html_ur' => '',
@@ -196,6 +233,9 @@ class CmsSectionRegistry
                 'role' => 'primary',
                 'wrapper_class' => 'laravel-financial-statements-page',
             ],
+            'forms_catalog' => [
+                'role' => 'primary',
+            ],
             'home_popup', 'hero_slider', 'home_about_banner', 'icon_cards', 'value_chain' => [
                 'role' => 'home',
                 'slot' => $homeSlot,
@@ -234,6 +274,7 @@ class CmsSectionRegistry
                 'html_ur' => (string) ($content['html_ur'] ?? ''),
             ],
             'pdf_table' => $this->normalizePdfTable($content),
+            'forms_catalog' => $this->normalizeFormsCatalog($content),
             'html' => [
                 'html' => (string) ($content['html'] ?? ''),
                 'html_ur' => (string) ($content['html_ur'] ?? ''),
@@ -473,6 +514,79 @@ class CmsSectionRegistry
             'download_label_ur' => trim((string) ($input['download_label_ur'] ?? '')),
             'rows' => $rows,
         ];
+    }
+
+    /**
+     * @param  array<string, mixed>  $input
+     * @return array<string, mixed>
+     */
+    private function normalizeFormsCatalog(array $input): array
+    {
+        $columns = [];
+
+        foreach ((array) ($input['columns'] ?? []) as $column) {
+            if (! is_array($column)) {
+                continue;
+            }
+
+            $groups = [];
+            foreach ((array) ($column['groups'] ?? []) as $group) {
+                if (! is_array($group)) {
+                    continue;
+                }
+
+                $items = [];
+                foreach ((array) ($group['items'] ?? []) as $item) {
+                    if (! is_array($item)) {
+                        continue;
+                    }
+
+                    $label = trim((string) ($item['label'] ?? ''));
+                    $path = $this->normalizeAssetPath((string) ($item['path'] ?? ''));
+
+                    if ($label === '' && $path === '') {
+                        continue;
+                    }
+
+                    $items[] = [
+                        'label' => $label,
+                        'label_ur' => trim((string) ($item['label_ur'] ?? '')),
+                        'path' => $path,
+                    ];
+                }
+
+                $heading = trim((string) ($group['heading'] ?? ''));
+                $style = trim((string) ($group['style'] ?? 'plain'));
+                if (! in_array($style, ['plain', 'accordion'], true)) {
+                    $style = 'plain';
+                }
+
+                if ($heading === '' && $items === []) {
+                    continue;
+                }
+
+                $groups[] = [
+                    'heading' => $heading,
+                    'heading_ur' => trim((string) ($group['heading_ur'] ?? '')),
+                    'style' => $style,
+                    'open' => filter_var($group['open'] ?? true, FILTER_VALIDATE_BOOLEAN),
+                    'items' => $items,
+                ];
+            }
+
+            $title = trim((string) ($column['title'] ?? ''));
+            if ($title === '' && $groups === []) {
+                continue;
+            }
+
+            $columns[] = [
+                'title' => $title,
+                'title_ur' => trim((string) ($column['title_ur'] ?? '')),
+                'groups' => $groups,
+            ];
+        }
+
+        return ['columns' => $columns];
     }
 
     /**

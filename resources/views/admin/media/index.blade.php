@@ -83,7 +83,7 @@
             @else
                 <div class="cms-media-grid">
                     @foreach ($media as $item)
-                        <article class="cms-media-card">
+                        <article class="cms-media-card" id="media-card-{{ $item->id }}">
                             <div class="cms-media-card__preview">
                                 @if ($item->isImage())
                                     <img src="{{ $item->copyUrl() }}" alt="{{ $item->alt_text ?: $item->label }}" loading="lazy">
@@ -101,6 +101,22 @@
                                         · {{ number_format($item->file_size / 1024, 1) }} KB
                                     @endif
                                 </p>
+                                @if ($item->isPdf())
+                                    @php
+                                        $usedOn = $pdfUsageByPath[ltrim((string) $item->path, '/')] ?? [];
+                                    @endphp
+                                    <p class="description cms-media-card__usage">
+                                        <strong>{{ __('Used on:') }}</strong>
+                                        @if ($usedOn === [])
+                                            {{ __('Not linked on any page') }}
+                                        @else
+                                            @foreach ($usedOn as $i => $pageRef)
+                                                @if ($i > 0), @endif
+                                                <a href="{{ route('admin.pages.edit', $pageRef['id']) }}">{{ $pageRef['title'] }}</a>
+                                            @endforeach
+                                        @endif
+                                    </p>
+                                @endif
                                 <p class="cms-media-card__url">
                                     <div class="cms-url-copy">
                                         <input
@@ -120,7 +136,7 @@
                                     </div>
                                 </p>
                                 <details class="cms-media-card__edit">
-                                    <summary>{{ __('Edit') }}</summary>
+                                    <summary>{{ __('Edit / Replace file') }}</summary>
                                     <form method="post" action="{{ route('admin.media.update', $item) }}" enctype="multipart/form-data" class="admin-media-form-mt">
                                         @csrf
                                         @method('PUT')
@@ -139,7 +155,8 @@
                                         <div class="row">
                                             <div>
                                                 <label>{{ __('Replace file') }}</label>
-                                                <input type="file" name="file">
+                                                <input type="file" name="file" accept="{{ $item->isPdf() ? 'application/pdf' : 'image/*,application/pdf' }}">
+                                                <p class="description">{{ __('Replaces the file at the same path so page links keep working.') }}</p>
                                             </div>
                                         </div>
                                         <p class="admin-flex-row admin-flex-row--mt8">

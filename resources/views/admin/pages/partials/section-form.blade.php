@@ -86,6 +86,7 @@
             @include('admin.pages.partials.section-fields.content', ['locale' => 'en', 'section' => $section, 'content' => $content, 'currentType' => $currentType])
             @include('admin.pages.partials.section-fields.html', ['locale' => 'en', 'content' => $content, 'currentType' => $currentType])
             @include('admin.pages.partials.section-fields.pdf-table', ['locale' => 'en', 'content' => $content, 'settings' => $settings, 'currentType' => $currentType])
+            @include('admin.pages.partials.section-fields.forms-catalog', ['locale' => 'en', 'content' => $content, 'currentType' => $currentType])
             @include('admin.pages.partials.section-fields.cms-blocks', ['locale' => 'en', 'content' => $content, 'settings' => $settings, 'currentType' => $currentType])
         </div>
 
@@ -94,6 +95,7 @@
             @include('admin.pages.partials.section-fields.content', ['locale' => 'ur', 'section' => $section, 'content' => $content, 'currentType' => $currentType])
             @include('admin.pages.partials.section-fields.html', ['locale' => 'ur', 'content' => $content, 'currentType' => $currentType])
             @include('admin.pages.partials.section-fields.pdf-table', ['locale' => 'ur', 'content' => $content, 'settings' => $settings, 'currentType' => $currentType])
+            @include('admin.pages.partials.section-fields.forms-catalog', ['locale' => 'ur', 'content' => $content, 'currentType' => $currentType])
             @include('admin.pages.partials.section-fields.cms-blocks', ['locale' => 'ur', 'content' => $content, 'settings' => $settings, 'currentType' => $currentType])
         </div>
     </div>

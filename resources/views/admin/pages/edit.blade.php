@@ -241,6 +241,51 @@
             </div>
 
             <div class="postbox">
+                <h2 class="postbox-header">{{ __('PDFs on this page') }}</h2>
+                <div class="inside">
+                    <p class="description">{{ __('All PDF links found in this page’s sections and attachments. Edit Forms lists in the Forms catalog section; replace files in') }} <a href="{{ route('admin.media.index', ['type' => 'pdf']) }}">{{ __('Media Library') }}</a>.</p>
+
+                    @if (($page->slug === 'forms' || $page->view_key === 'forms') && ! $page->sections->contains(fn ($s) => $s->section_type === 'forms_catalog'))
+                        <div class="notice notice-warning inline">
+                            <p>{{ __('Forms PDF list is not CMS-managed yet. Add a “Forms catalog” section (Placement: Main content), or run:') }} <code>php artisan cms:seed-page-sections forms --force</code></p>
+                        </div>
+                    @endif
+
+                    @if (($pagePdfs ?? []) === [])
+                        <p class="description">{{ __('No PDF links on this page yet.') }}</p>
+                    @else
+                        <table class="widefat striped">
+                            <thead>
+                                <tr>
+                                    <th>{{ __('Label') }}</th>
+                                    <th>{{ __('Path') }}</th>
+                                    <th>{{ __('Source') }}</th>
+                                    <th>{{ __('Actions') }}</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach ($pagePdfs as $pdf)
+                                    <tr>
+                                        <td>{{ $pdf['label'] }}</td>
+                                        <td><code>{{ $pdf['path'] }}</code></td>
+                                        <td>{{ $pdf['source'] }}</td>
+                                        <td>
+                                            @if (! empty($pdf['path']))
+                                                <a href="{{ \App\Support\PublicPath::uploadHref($pdf['path']) }}" target="_blank" rel="noopener">{{ __('Open') }}</a>
+                                            @endif
+                                            @if (! empty($pdf['media_id']))
+                                                · <a href="{{ route('admin.media.index', ['type' => 'pdf', 'folder' => str_starts_with($pdf['path'], 'assets/') ? trim(dirname(\Illuminate\Support\Str::after($pdf['path'], 'assets/')), '/') : '']) }}#media-card-{{ $pdf['media_id'] }}">{{ __('Library') }}</a>
+                                            @endif
+                                        </td>
+                                    </tr>
+                                @endforeach
+                            </tbody>
+                        </table>
+                    @endif
+                </div>
+            </div>
+
+            <div class="postbox">
                 <h2 class="postbox-header">{{ __('Page attachments') }}</h2>
                 <div class="inside">
                     <p class="description">{{ __('Optional downloads list appended to the page. Use') }} <a href="{{ route('admin.media.index') }}">{{ __('Media Library') }}</a> {{ __('for inline images/PDFs in sections.') }}</p>

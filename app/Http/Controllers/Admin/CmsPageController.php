@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\Page;
+use App\Services\CmsPdfUsageService;
 use App\Support\NewsEventsRepository;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
@@ -67,7 +68,7 @@ class CmsPageController extends Controller
             ->with('status', __('Page created.'));
     }
 
-    public function edit(Page $page): ViewContract
+    public function edit(Page $page, CmsPdfUsageService $pdfUsage): ViewContract
     {
         $page->load(['sections', 'media']);
 
@@ -78,6 +79,7 @@ class CmsPageController extends Controller
             'sectionTypes' => config('cms.section_types', []),
             'sectionRoles' => config('cms.section_roles', []),
             'libraryImages' => \App\Models\CmsMedia::query()->library()->images()->orderByDesc('updated_at')->limit(50)->get(),
+            'pagePdfs' => $pdfUsage->forPage($page),
         ]);
     }
 
