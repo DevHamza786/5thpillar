@@ -59,6 +59,7 @@ final class FundPriceArchiveRepository
                     'brk_offer' => $data['brk_offer'] ?? '',
                 ];
             })->sortBy(fn (array $row) => self::archiveRowSortKey($row['date']))->values()->all())
+            ->sortKeysUsing(fn ($a, $b) => self::monthSortKey($b) <=> self::monthSortKey($a))
             ->all();
     }
 
@@ -77,6 +78,8 @@ final class FundPriceArchiveRepository
             usort($rows, fn (array $a, array $b) => self::archiveRowSortKey($a['date'] ?? '') <=> self::archiveRowSortKey($b['date'] ?? ''));
             $months[$label] = $rows;
         }
+
+        uksort($months, fn ($a, $b) => self::monthSortKey((string) $b) <=> self::monthSortKey((string) $a));
 
         return $months;
     }
@@ -164,6 +167,21 @@ final class FundPriceArchiveRepository
             $fallback = strtotime($dateLabel);
 
             return $fallback !== false ? (int) date('Ymd', $fallback) : 0;
+        }
+    }
+
+    /**
+     * Chronological key for a "F Y" month label (e.g. "June 2026" => 202606).
+     * Used to order month groups newest-first so the current month is on top.
+     */
+    private static function monthSortKey(string $monthLabel): int
+    {
+        try {
+            return (int) \Carbon\Carbon::createFromFormat('F Y', trim($monthLabel))->format('Ym');
+        } catch (\Throwable) {
+            $fallback = strtotime($monthLabel);
+
+            return $fallback !== false ? (int) date('Ym', $fallback) : 0;
         }
     }
 }

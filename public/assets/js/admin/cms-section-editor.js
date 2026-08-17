@@ -37,10 +37,24 @@
         });
     }
 
+    function reindexPdfRows(rowsWrap) {
+        if (!rowsWrap) {
+            return;
+        }
+        rowsWrap.querySelectorAll('[data-pdf-row]').forEach(function (row, i) {
+            row.querySelectorAll('input, textarea, select').forEach(function (input) {
+                if (input.name) {
+                    input.name = input.name.replace(/content\[rows\]\[\d+\]/, 'content[rows][' + i + ']');
+                }
+            });
+        });
+    }
+
     function initPdfRows(root) {
         root.addEventListener('click', function (event) {
-            if (event.target.matches('[data-pdf-row-add]')) {
-                var container = event.target.closest('.cms-section-fields--pdf-table');
+            var addBtn = event.target.closest('[data-pdf-row-add]');
+            if (addBtn) {
+                var container = addBtn.closest('.cms-section-fields--pdf-table');
                 if (!container) {
                     return;
                 }
@@ -56,13 +70,39 @@
                 var wrapper = document.createElement('div');
                 wrapper.innerHTML = html.trim();
                 rowsWrap.appendChild(wrapper.firstElementChild);
+                reindexPdfRows(rowsWrap);
                 return;
             }
 
-            if (event.target.matches('[data-pdf-row-remove]')) {
-                var row = event.target.closest('[data-pdf-row]');
-                if (row) {
-                    row.remove();
+            var removeBtn = event.target.closest('[data-pdf-row-remove]');
+            if (removeBtn) {
+                var rowToRemove = removeBtn.closest('[data-pdf-row]');
+                var wrap = rowToRemove ? rowToRemove.closest('[data-pdf-rows]') : null;
+                if (rowToRemove) {
+                    rowToRemove.remove();
+                }
+                reindexPdfRows(wrap);
+                return;
+            }
+
+            var upBtn = event.target.closest('[data-pdf-row-up]');
+            if (upBtn) {
+                var rowUp = upBtn.closest('[data-pdf-row]');
+                var prev = rowUp ? rowUp.previousElementSibling : null;
+                if (rowUp && prev) {
+                    rowUp.parentNode.insertBefore(rowUp, prev);
+                    reindexPdfRows(rowUp.closest('[data-pdf-rows]'));
+                }
+                return;
+            }
+
+            var downBtn = event.target.closest('[data-pdf-row-down]');
+            if (downBtn) {
+                var rowDown = downBtn.closest('[data-pdf-row]');
+                var next = rowDown ? rowDown.nextElementSibling : null;
+                if (rowDown && next) {
+                    rowDown.parentNode.insertBefore(next, rowDown);
+                    reindexPdfRows(rowDown.closest('[data-pdf-rows]'));
                 }
             }
         });

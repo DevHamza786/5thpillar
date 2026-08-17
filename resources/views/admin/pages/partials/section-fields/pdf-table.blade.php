@@ -71,6 +71,8 @@
                         </div>
                     </div>
                     <p class="admin-paragraph-mb">
+                        <button type="button" class="button button-small" data-pdf-row-up title="{{ __('Move up') }}">&uarr; {{ __('Up') }}</button>
+                        <button type="button" class="button button-small" data-pdf-row-down title="{{ __('Move down') }}">&darr; {{ __('Down') }}</button>
                         <button type="button" class="button button-small button-link-delete" data-pdf-row-remove>{{ __('Remove row') }}</button>
                     </p>
                 </div>
@@ -101,6 +103,8 @@
                     </div>
                 </div>
                 <p class="admin-paragraph-mb">
+                    <button type="button" class="button button-small" data-pdf-row-up title="{{ __('Move up') }}">&uarr; {{ __('Up') }}</button>
+                    <button type="button" class="button button-small" data-pdf-row-down title="{{ __('Move down') }}">&darr; {{ __('Down') }}</button>
                     <button type="button" class="button button-small button-link-delete" data-pdf-row-remove>{{ __('Remove row') }}</button>
                 </p>
             </div>
