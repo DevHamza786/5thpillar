@@ -91,7 +91,7 @@
             <div class="laravel-header-actions hide_on_mobile">
                 <div class="laravel-header-search search_wrap search_style_normal">
                     <div class="search_form_wrap">
-                        <form role="search" method="get" class="search_form" action="{{ url('/') }}">
+                        <form role="search" method="get" class="search_form" action="{{ app()->getLocale() === 'ur' ? route('urdu.search') : route('search') }}">
                             <label>
                                 <input type="text" class="search_field" placeholder="{{ __('Search') }}" value="{{ request('s', '') }}" name="s">
                             </label>

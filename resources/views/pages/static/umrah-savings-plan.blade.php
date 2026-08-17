@@ -19,7 +19,6 @@
 @section('structured_primary')
     @php
         $umrahLogoBankAlfalah = asset('assets/images/BAFL-02-03-300x239.png');
-        $umrahLogoBankIslami = asset('assets/images/Bank-Islami-Edited.webp');
         $umrahLogo5thPillar = asset('assets/images/5th.webp');
     @endphp
     <article class="post_item_single type-page hentry laravel-hajj-page laravel-umrah-savings-page">
@@ -46,26 +45,6 @@
                             loading="lazy"
                             decoding="async"
                             alt="Bank Alfalah"
-                        >
-                    </div>
-                </div>
-            </section>
-
-            <section class="laravel-hajj-block">
-                <h2 class="laravel-hajj-section-title">5th Pillar Family Takaful Amanat Savings Plan</h2>
-                <p>
-                    If you are looking to provide your family with the best lifestyle, protect them against any unforeseen events or looking for the family to fulfil their financial obligations, then 5th Pillar Family Takaful Amanat Savings Plan is the right solution for you. Our Takaful plans work in a Shariah-compliant manner and facilitate saving, investing and growing your savings while enjoying a significant level of Family Takaful coverage.
-                </p>
-                <div class="laravel-hajj-bank-partner laravel-hajj-bank-partner--align-left laravel-hajj-bank-partner--spaced">
-                    <div class="laravel-hajj-bank-partner__logo">
-                        <img
-                            src="{{ $umrahLogoBankIslami }}"
-                            width="200"
-                            height="155"
-                            loading="lazy"
-                            decoding="async"
-                            title="Bank-Islami-Edited"
-                            alt="BankIslami"
                         >
                     </div>
                 </div>

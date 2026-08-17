@@ -26,6 +26,7 @@ use App\Http\Controllers\UmrahPlannerController;
 use App\Http\Controllers\PdfEmbedController;
 use App\Http\Controllers\PdfViewerController;
 use App\Http\Controllers\PageController;
+use App\Http\Controllers\SearchController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/favicon.ico', static function () {
@@ -188,6 +189,8 @@ $registerPublicRoutes = static function (string $prefix, string $namePrefix, boo
             Route::get('/favicon.ico', static function () {
                 return redirect(asset('assets/images/favicons/cropped-5th-Pilar-Logo-32x32.png'), 301);
             })->name('favicon');
+
+            Route::get('/search', [SearchController::class, 'index'])->name('search');
 
             Route::get('/{slug}', [PageController::class, 'show'])
                 ->name('pages.show');

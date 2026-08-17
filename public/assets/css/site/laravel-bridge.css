@@ -1560,6 +1560,74 @@ body.header_position_over .top_panel {
     margin-top: 1.5rem;
 }
 
+.laravel-search-form {
+    align-items: stretch;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    margin: 0 0 1.75rem;
+    max-width: 640px;
+}
+
+.laravel-search-form__field {
+    border: 1px solid rgba(180, 165, 92, 0.5);
+    border-radius: 6px;
+    flex: 1 1 240px;
+    font-size: 1rem;
+    padding: 0.7rem 1rem;
+}
+
+.laravel-search-form__field:focus {
+    border-color: #b4a55c;
+    outline: 2px solid rgba(180, 165, 92, 0.35);
+    outline-offset: 1px;
+}
+
+.laravel-search-form__submit {
+    flex: 0 0 auto;
+}
+
+.laravel-search-hint,
+.laravel-search-summary {
+    color: #555555;
+    font-size: 1.0625rem;
+    margin: 0 0 1.25rem;
+}
+
+.laravel-search-results {
+    display: grid;
+    gap: 1rem;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.laravel-search-results__item {
+    border: 1px solid rgba(180, 165, 92, 0.3);
+    border-left: 4px solid #b4a55c;
+    border-radius: 8px;
+    padding: 1rem 1.15rem;
+}
+
+.laravel-search-results__link {
+    color: #9d8f4a;
+    font-family: "Raleway", sans-serif;
+    font-size: 1.15rem;
+    font-weight: 700;
+    text-decoration: none;
+}
+
+.laravel-search-results__link:hover,
+.laravel-search-results__link:focus {
+    text-decoration: underline;
+}
+
+.laravel-search-results__excerpt {
+    color: #555555;
+    line-height: 1.65;
+    margin: 0.4rem 0 0;
+}
+
 .laravel-footer-appstore {
     display: inline-block;
     line-height: 0;
